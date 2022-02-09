@@ -4,5 +4,38 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Map/HideansSeek.unity
+    guid: 6b78cf69d47e6ac48889edb27b48811b
+  - enabled: 1
+    path: Assets/Scenes/Map/abandoned.unity
+    guid: 9690fae6f49c1aa439bfe3e1e2f5efc7
+  - enabled: 1
+    path: Assets/Scenes/Map/bench.unity
+    guid: 00341a71c28efa54fa1221a8bcfb5447
+  - enabled: 1
+    path: Assets/Scenes/Map/downstairs.unity
+    guid: 917227d47a061a148994c52cfdd2e1a9
+  - enabled: 1
+    path: Assets/Scenes/Map/farmer.unity
+    guid: 745edc96caeb84d468141c737ff4d466
+  - enabled: 1
+    path: Assets/Scenes/Map/field.unity
+    guid: bf3cbf96ee45e134296613d983e987ff
+  - enabled: 1
+    path: Assets/Scenes/Map/headhouse.unity
+    guid: 9bca68febb07a6c498ca0c9f432e07a4
+  - enabled: 1
+    path: Assets/Scenes/Map/mainhouse.unity
+    guid: 9ed6f55b465502a4a82ba31b3d5d7872
+  - enabled: 1
+    path: Assets/Scenes/Map/mainfield.unity
+    guid: 333ebb221cfdd5845931aaac783e6aa3
+  - enabled: 1
+    path: Assets/Scenes/Map/villagehall.unity
+    guid: dd8d1eccc54c5ef43893a5752dadf0a0
+  - enabled: 1
+    path: Assets/Scenes/Map/mountain.unity
+    guid: 4eeb98d81cbacee4580ef1b5a8c4aac0
   m_configObjects: {}
