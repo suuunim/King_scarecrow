@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,10 +9,6 @@ public class GameManager : MonoBehaviour
     public int npcNow;
     public int[] task = { 0, 0, 0 };  // index 0은 허수아비, 1은 아주머니, 2는 이장 이런식
     public string[] npc = {"허수아비", "아주머니"};
-
-    void Awake()
-    {
-        placeNow = 2;
 
     public static int FindRoot;
 
@@ -45,7 +42,6 @@ public class GameManager : MonoBehaviour
     }
 
    
-
 
     void Start()
     {
