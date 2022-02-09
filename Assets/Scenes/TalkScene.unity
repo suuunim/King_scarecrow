@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634084112}
-  - component: {fileID: 634084113}
+  - component: {fileID: 634084111}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -390,6 +390,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &634084111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634084110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af7b8828221cce4e9254b8c9352f7f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeNow: 0
+  npcNow: 0
+  task: 000000000000000000000000
+  npc:
+  - "\uD5C8\uC218\uC544\uBE44"
+  - "\uC544\uC8FC\uBA38\uB2C8"
+  scoreText: {fileID: 0}
+  StoneText: {fileID: 0}
 --- !u!4 &634084112
 Transform:
   m_ObjectHideFlags: 0
@@ -404,24 +424,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &634084113
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634084110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acff7922e6de6164cbef187c4f70ede7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  placeNow: 0
-  npcNow: 0
-  task: 000000000000000000000000
-  npc:
-  - "\uD5C8\uC218\uC544\uBE44"
-  - "\uC544\uC8FC\uBA38\uB2C8"
 --- !u!1 &719322962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,9 +1103,7 @@ MonoBehaviour:
   ButtonTalk: {fileID: 1962172842}
   ButtonTask: {fileID: 1290392572}
   clickCount: 0
-  spaceCount: 0
-  npc: {fileID: 0}
-  manager: {fileID: 634084113}
+  manager: {fileID: 634084111}
   img_player: {fileID: 1505043680}
   img_npc: {fileID: 996255020}
 --- !u!4 &1307867270
