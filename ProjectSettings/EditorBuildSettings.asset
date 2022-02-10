@@ -6,36 +6,69 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Map/HideansSeek.unity
+    path: Assets/Scenes/HideAndSeek/HideansSeek.unity
     guid: 6b78cf69d47e6ac48889edb27b48811b
   - enabled: 1
-    path: Assets/Scenes/Map/abandoned.unity
+    path: Assets/Scenes/HideAndSeek/abandoned.unity
     guid: 9690fae6f49c1aa439bfe3e1e2f5efc7
   - enabled: 1
-    path: Assets/Scenes/Map/bench.unity
+    path: Assets/Scenes/HideAndSeek/bench.unity
     guid: 00341a71c28efa54fa1221a8bcfb5447
   - enabled: 1
-    path: Assets/Scenes/Map/downstairs.unity
+    path: Assets/Scenes/HideAndSeek/downstairs.unity
     guid: 917227d47a061a148994c52cfdd2e1a9
   - enabled: 1
-    path: Assets/Scenes/Map/farmer.unity
+    path: Assets/Scenes/Map/Map.unity
+    guid: e8e5868c6d39d374ca1fd149ffe2d946
+  - enabled: 1
+    path: Assets/Scenes/HideAndSeek/farmer.unity
     guid: 745edc96caeb84d468141c737ff4d466
   - enabled: 1
-    path: Assets/Scenes/Map/field.unity
+    path: Assets/Scenes/Map/Mfarmer.unity
+    guid: ff5b936b88e45db4db65b989729c79df
+  - enabled: 1
+    path: Assets/Scenes/Map/Mmountain.unity
+    guid: 9d957c612b3f2aa49b27125ff1e750f9
+  - enabled: 1
+    path: Assets/Scenes/Map/Mvillagehall.unity
+    guid: e4f804d8f1471814fb70020b240fc088
+  - enabled: 1
+    path: Assets/Scenes/Map/Mmainhouse.unity
+    guid: ed17b902a9f8242409c195fe4bb49988
+  - enabled: 1
+    path: Assets/Scenes/Map/Mbench.unity
+    guid: 472bfa2c566ab834d9c249f80b3b2500
+  - enabled: 1
+    path: Assets/Scenes/Map/Mheadhouse.unity
+    guid: 56097c6bb10f74141b37aacd9c6df797
+  - enabled: 1
+    path: Assets/Scenes/Map/Mgrandmother.unity
+    guid: 3c10db23dd6a1a54690da2bdbf86ad0a
+  - enabled: 1
+    path: Assets/Scenes/Map/Mfield.unity
+    guid: bacd639c908321641b9da9f779573ff5
+  - enabled: 1
+    path: Assets/Scenes/Map/Mdownstairs.unity
+    guid: 04afe01136b5ca446a05599f3cbefc69
+  - enabled: 1
+    path: Assets/Scenes/Map/Mabandoned.unity
+    guid: 4415e0b0b66c2e6458e21acb372af128
+  - enabled: 1
+    path: Assets/Scenes/HideAndSeek/field.unity
     guid: bf3cbf96ee45e134296613d983e987ff
   - enabled: 1
-    path: Assets/Scenes/Map/headhouse.unity
+    path: Assets/Scenes/HideAndSeek/headhouse.unity
     guid: 9bca68febb07a6c498ca0c9f432e07a4
   - enabled: 1
-    path: Assets/Scenes/Map/mainhouse.unity
+    path: Assets/Scenes/HideAndSeek/mainhouse.unity
     guid: 9ed6f55b465502a4a82ba31b3d5d7872
   - enabled: 1
-    path: Assets/Scenes/Map/mainfield.unity
+    path: Assets/Scenes/HideAndSeek/mainfield.unity
     guid: 333ebb221cfdd5845931aaac783e6aa3
   - enabled: 1
-    path: Assets/Scenes/Map/villagehall.unity
+    path: Assets/Scenes/HideAndSeek/villagehall.unity
     guid: dd8d1eccc54c5ef43893a5752dadf0a0
   - enabled: 1
-    path: Assets/Scenes/Map/mountain.unity
+    path: Assets/Scenes/HideAndSeek/mountain.unity
     guid: 4eeb98d81cbacee4580ef1b5a8c4aac0
   m_configObjects: {}
