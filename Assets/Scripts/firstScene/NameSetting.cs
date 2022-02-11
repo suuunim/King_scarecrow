@@ -14,7 +14,7 @@ public class NameSetting : MonoBehaviour
         if (DataController.Instance.gameData.isFirstTime)//첫 시작일때
         {
             DataController.Instance.gameData.isFirstTime = false;
-            //SceneManager.LoadScene("FirstStory");
+            SceneManager.LoadScene("Opening");
         }
 
         else//첫시작이 아닐 때

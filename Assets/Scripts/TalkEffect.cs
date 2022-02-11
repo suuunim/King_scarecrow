@@ -22,7 +22,7 @@ public class TalkEffect : MonoBehaviour
     {
         msgTxt.text = "";
         index = 0;
-        EndCursor.SetActive(false);
+        EndCursor.SetActive(true);
 
         interval = 1.0f / CharPerSeconds;
         Invoke("Effecting", interval);
