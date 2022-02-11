@@ -104,13 +104,23 @@ public class Stone : MonoBehaviour
         }
     }
 
+    private void DeactiveStone() {
+        gameObject.SetActive(false);
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.tag == "bird") {
 
-            //Destroy(gameObject);
-            gameObject.SetActive(false);
+            if (NextStone != null)
+            {
+
+                NextStone.SetActive(true);
+            }
+            //StartCoroutine(Release());
+            Invoke("DeactiveStone", 0.1f);
 
         }
 

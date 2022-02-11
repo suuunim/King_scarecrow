@@ -66,7 +66,7 @@ public class bird : MonoBehaviour
         {
 
 
-            birdDir = -1;
+            
             GetComponent<SpriteRenderer>().flipX = false;
 
 
@@ -76,7 +76,7 @@ public class bird : MonoBehaviour
         {
 
 
-            birdDir = 1;
+            
             GetComponent<SpriteRenderer>().flipX = true;
 
 
