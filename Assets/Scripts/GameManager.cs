@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public int placeNow; //0은 맵, 1은 집, 2는 허수아비, 3은 아주머니 이런식
     public int npcNow;
     public int[] task = { 0, 0, 0 };  // index 0은 허수아비, 1은 아주머니, 2는 이장 이런식
-    public string[] npc = { "허수아비", "아주머니" };
+    public string[] npc = {"허수아비", "아주머니"};
 
     public static int FindRoot;
 
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Text StoneText;
     private int StoneN = 50;
     private int score = 0; //점수를 관리합니다.
-
+    public static int Part1=0;
     public Slider Head;
     public Slider Main;
     void Awake()
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-
+   
 
     void Start()
     {
