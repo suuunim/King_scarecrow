@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -66,7 +66,7 @@ public class bird : MonoBehaviour
         {
 
 
-            birdDir = -1;
+            
             GetComponent<SpriteRenderer>().flipX = false;
 
 
@@ -76,7 +76,7 @@ public class bird : MonoBehaviour
         {
 
 
-            birdDir = 1;
+            
             GetComponent<SpriteRenderer>().flipX = true;
 
 
