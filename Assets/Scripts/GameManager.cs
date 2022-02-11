@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public Text StoneText;
     private int StoneN = 50;
     private int score = 0; //점수를 관리합니다.
-
+    public static int Part1=0;
     public Slider Head;
     public Slider Main;
     void Awake()
