@@ -59,8 +59,8 @@ public class DataController : MonoBehaviour
         else
         {
             Debug.Log("새로운 파일 생성");
-
             _gameData = new GameData();
+
         }
     }
 
