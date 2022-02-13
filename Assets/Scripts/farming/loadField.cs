@@ -13,6 +13,9 @@ public class loadField : MonoBehaviour
     public Sprite completed_r;
     public Sprite completed_c;
     public Sprite completed_g;
+    public Sprite rotten_r;
+    public Sprite rotten_c;
+    public Sprite rotten_g;
     public Sprite sprout;
     //밭 한칸 한칸의 상태를 로드해주는 함수
     //0 기본 상태
@@ -21,6 +24,7 @@ public class loadField : MonoBehaviour
     //3 물을 준 상태
     //4 ~ 초 흐름
 
+    //json 받아와서 썩은 상태의 작물일 때 로드하는 코드 넣기
     void loadFieldR(int[] arr)//무밭
     {
         GameObject tmp = null;
