@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class bird : MonoBehaviour
 {
     int check = 0;
@@ -51,12 +51,7 @@ public class bird : MonoBehaviour
     }
 
 
-    void update()
-    {
-       
-
-
-    }
+   
 
     void BirdSet()
     {
@@ -179,6 +174,32 @@ public class bird : MonoBehaviour
         }
 
 
+    }
+
+    void delayLoad() {
+
+        SceneManager.LoadScene("Mfield");
+
+    }
+
+    void Update() {
+
+        if (GameManager.score == 1) {
+            GameManager.Part1 = 22;
+            Invoke("delayLoad", 2);
+        }
+        else if (GameManager.StoneN == 0) {
+
+            SceneManager.LoadScene("Slingshot");
+
+
+        }
+        else if (HealthBar.value == 0)
+        {
+            SceneManager.LoadScene("Slingshot");
+
+        }
+    
     }
 
 }

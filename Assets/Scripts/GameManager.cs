@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; //어디서나 접근할 수 있도록 static(정적)으로 자기 자신을 저장할 변수를 만듭니다.
     public Text scoreText; //점수를 표시하는 Text객체를 에디터에서 받아옵니다.
     public Text StoneText;
-    private int StoneN = 50;
-    private int score = 0; //점수를 관리합니다.
+    public static int StoneN = 50;
+    public static int score = 0; //점수를 관리합니다.
     public static int Part1=0;
     public Slider Head;
     public Slider Main;
