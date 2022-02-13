@@ -13,6 +13,7 @@ public class cursorChange : MonoBehaviour
     public Texture2D watering;
     public Texture2D original;
     public Text cursorControl;
+    private Vector2 hotSpot;
 
     //cursorControl
     //0 : 가장 기본 상태
@@ -22,6 +23,11 @@ public class cursorChange : MonoBehaviour
     //4 : 물뿌리개 누른 상태
     //5 : 호미 누른 상태
 
+    public void adjustHotSpot(Texture2D target)
+    {
+        hotSpot.x = target.width / 2;
+        hotSpot.y = target.height / 2;
+    }
 
     public void changeToOriginal()
     {
@@ -31,11 +37,12 @@ public class cursorChange : MonoBehaviour
     //무씨앗 클릭 함수
     public void clickSeed1()
     {
+        adjustHotSpot(raddish);
         if (cursorControl.text == "1")
             changeToOriginal();
         else
         {
-            Cursor.SetCursor(raddish, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.SetCursor(raddish, hotSpot, CursorMode.ForceSoftware);
             cursorControl.text = "1";
         }
 
@@ -43,22 +50,24 @@ public class cursorChange : MonoBehaviour
     }
     public void clickSeed2()
       {
+        adjustHotSpot(cabbage);
         if (cursorControl.text == "2")
             changeToOriginal();
         else
         {
-            Cursor.SetCursor(cabbage, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.SetCursor(cabbage, hotSpot, CursorMode.ForceSoftware);
             cursorControl.text = "2";
         }
             
     }
     public void clickSeed3()
       {
-        if (cursorControl.text == "2")
+        adjustHotSpot(greenOnion);
+        if (cursorControl.text == "3")
             changeToOriginal();
         else
         {
-            Cursor.SetCursor(greenOnion, Vector2.zero, CursorMode.ForceSoftware);
+            Cursor.SetCursor(greenOnion, hotSpot, CursorMode.ForceSoftware);
             cursorControl.text = "3";
         }
        
@@ -83,7 +92,10 @@ public class cursorChange : MonoBehaviour
             changeToOriginal();
         else
         {
-            Cursor.SetCursor(watering, Vector2.zero, CursorMode.ForceSoftware);
+            Vector2 v;
+            v.x = watering.width / 2;
+            v.y = watering.height / 2;
+            Cursor.SetCursor(watering, v, CursorMode.ForceSoftware);
             cursorControl.text = "4";
         }
     }
