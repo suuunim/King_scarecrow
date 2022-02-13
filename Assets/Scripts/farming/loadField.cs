@@ -8,11 +8,12 @@ public class loadField : MonoBehaviour
     public Sprite initial;
     public Sprite plowed;
     public Sprite seed_r;
-   /* public Sprite seed_c;
-    public Sprite seed_g;*/
+    public Sprite seed_c;
+    public Sprite seed_g;
     public Sprite completed_r;
-    /*public Sprite completed_c;
-    public Sprite completed_g;*/
+    public Sprite completed_c;
+    public Sprite completed_g;
+    public Sprite sprout;
     //밭 한칸 한칸의 상태를 로드해주는 함수
     //0 기본 상태
     //1 밭이 갈아진 상태
@@ -36,6 +37,9 @@ public class loadField : MonoBehaviour
                 case 1:
                     img.sprite = plowed;
                     break;
+                case 2:
+                    img.sprite = seed_r;
+                    break;
                 case 6:
                     img.sprite = completed_r;
                     break;
@@ -51,7 +55,7 @@ public class loadField : MonoBehaviour
         }
 
     }
-   /* void loadFieldC(int[] arr)//배추밭
+    void loadFieldC(int[] arr)//배추밭
     {
         GameObject tmp = null;
         for (int i = 0; i < 6; i++)
@@ -73,7 +77,7 @@ public class loadField : MonoBehaviour
                     img.sprite = completed_c;
                     break;
                 default:
-                    img.sprite = growing_c;
+                    img.sprite = sprout;
                     break;
 
             }
@@ -104,7 +108,7 @@ public class loadField : MonoBehaviour
                     img.sprite = completed_g;
                     break;
                 default:
-                    img.sprite = growing_g;
+                    img.sprite = sprout;
                     break;
 
             }
@@ -112,7 +116,7 @@ public class loadField : MonoBehaviour
 
         }
 
-    }*/
+    }
     //농사게임씬 시작시 밭 상태를 불러와서 오브젝트에 저장시킴
     void Start()
     {
@@ -121,6 +125,12 @@ public class loadField : MonoBehaviour
         //이부분 제이슨에서 배열 불러오는걸로 바꾸기
         int[] tmpArr = { 0, 0, 0, 0, 0, 0};
         loadFieldR(tmpArr);
+
+        int[] tmpArr2 = { 0, 0, 0, 0, 0, 0 };
+        loadFieldC(tmpArr);
+
+        int[] tmpArr3 = { 0, 0, 0, 0, 0, 0 };
+        loadFieldG(tmpArr);
 
         //제이슨에서 수확량, 씨앗갯수 불러오기
     }

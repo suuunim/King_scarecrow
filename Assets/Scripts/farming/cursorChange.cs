@@ -7,6 +7,8 @@ public class cursorChange : MonoBehaviour
 {
     private Button button;
     public Texture2D raddish;
+    public Texture2D cabbage;
+    public Texture2D greenOnion;
     public Texture2D homi;
     public Texture2D watering;
     public Text cursorControl;
@@ -26,16 +28,19 @@ public class cursorChange : MonoBehaviour
         Cursor.SetCursor(raddish, Vector2.zero, CursorMode.ForceSoftware);
         cursorControl.text = "1";    
     }
-    /*  public void clickSeed2()
+    public void clickSeed2()
       {
-          Cursor.SetCursor(mouseImg, Vector2.zero, CursorMode.ForceSoftware);
-      }
+        //배추씨앗 클릭 함수
+          Cursor.SetCursor(cabbage, Vector2.zero, CursorMode.ForceSoftware);
+        cursorControl.text = "2";
+    }
     public void clickSeed3()
       {
-          Cursor.SetCursor(mouseImg, Vector2.zero, CursorMode.ForceSoftware);
-      }
+        //파 씨앗 클릭 함수
+          Cursor.SetCursor(greenOnion, Vector2.zero, CursorMode.ForceSoftware);
+        cursorControl.text = "3";
+    }
 
-     */
     public void clickHomi()
     {
         //호미 클릭 함수

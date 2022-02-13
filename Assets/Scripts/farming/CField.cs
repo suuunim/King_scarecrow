@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 //전체밭(해당 농작물 밭 6칸 중 아무곳이나) 클릭 
 //관련 스크립트 (raycast target 문제로 작은 밭 한칸 한칸에 적용)
-public class RField : MonoBehaviour
+public class CField : MonoBehaviour
 {
     //cursorControl
     //0 : 가장 기본 상태
@@ -28,11 +28,11 @@ public class RField : MonoBehaviour
     public Sprite seed;
     public Sprite complete;
     public Sprite fail;
-    public Sprite sprout;
     public Sprite initial;
+    public Sprite sprout;
 
-    public Text seedRNum;
-    
+    public Text seedCNum;
+
     private GameObject parent;
     private Sprite sp;
 
@@ -45,17 +45,17 @@ public class RField : MonoBehaviour
         {
             Transform tmp = parent.transform.GetChild(i);
             Image img = tmp.GetComponent<Image>();
-           if(tmp.GetChild(0).GetComponent<Text>().text == "2")//이미 씨앗까지 다 준 상태였을 때
+            if (tmp.GetChild(0).GetComponent<Text>().text == "2")//이미 씨앗까지 다 준 상태였을 때
             {
                 img.sprite = sprout;
-                Debug.Log(i+ " watered and start growing");
+                Debug.Log(i + " watered and start growing");
                 tmp.GetChild(0).GetComponent<Text>().text = "3";
-                GameObject.Find("fieldTimer").GetComponent<FieldTimer>().rTimer[i] = 3.0f;
-                Debug.Log(GameObject.Find("fieldTimer").GetComponent<FieldTimer>().rTimer[i]);
+                GameObject.Find("fieldTimer").GetComponent<FieldTimer>().cTimer[i] = 3.0f;
+                Debug.Log(GameObject.Find("fieldTimer").GetComponent<FieldTimer>().cTimer[i]);
             }
-            
+
         }
-        
+
     }
 
     private void changeImageToPlowed()//밭 갈아 줬을 때
@@ -66,7 +66,7 @@ public class RField : MonoBehaviour
             Image img = tmp.GetComponent<Image>();
             if (tmp.GetChild(0).GetComponent<Text>().text == "0")//기본 상태였을 때
             {
-                Debug.Log(i+" plowed");
+                Debug.Log(i + " plowed");
                 Color color = img.color;
                 img.sprite = plowed;
                 color.a = 1.0f;
@@ -83,9 +83,9 @@ public class RField : MonoBehaviour
         Image img = obj.image;
         sp = obj.image.sprite;
 
-        if (obj.transform.GetChild(0).GetComponent<Text>().text == "6")//무 다 자랐을 때
+        if (obj.transform.GetChild(0).GetComponent<Text>().text == "10")//배추 다 자랐을 때
         {//성공 실패로 나누기
-            if(img.sprite == complete)
+            if (img.sprite == complete)
             {
                 Debug.Log("수확성공");
                 result.text = (int.Parse(result.text) + 1).ToString();
@@ -93,37 +93,38 @@ public class RField : MonoBehaviour
             }
             img.sprite = initial;
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
-            
+
             //수확 성공했으면 수확한 작물 수 ++ 시키기
         }
 
-        //무씨앗 클릭 이후 무밭을 클릭하는 경우
-        else if (int.Parse(seedRNum.text) > 0 && cursorControl.text == "1" && obj.transform.parent.name == "field1" && sp == plowed)
+
+        //배추 씨앗 클릭 후 배추밭을 클릭하는 경우
+        else if (int.Parse(seedCNum.text) > 0 && cursorControl.text == "2" && obj.transform.parent.name == "field2" && sp == plowed)
         {
-            
             Debug.Log(this.GetComponent<Button>() + "seed complete");
             img.sprite = seed;
             obj.transform.GetChild(0).GetComponent<Text>().text = "2";
             //씨앗갯수 감소 코드 추가하기
             //json 파일 내 변수도 감소시키기
-            seedRNum.text = (int.Parse(seedRNum.text) - 1).ToString();
+            seedCNum.text = (int.Parse(seedCNum.text) - 1).ToString();
         }
 
+
         else if (cursorControl.text == "4")
-        {   
+        {
             //밭 새싹 그래픽으로 변경
             parent = transform.parent.gameObject;
             changeImageToWatered();
         }
-       else if(cursorControl.text == "5")
+        else if (cursorControl.text == "5")
         {
             //밭갈아진 그래픽으로 변경
             parent = transform.parent.gameObject;
             changeImageToPlowed();
         }
-        
-      
-        
+
+
+
 
     }
 }
