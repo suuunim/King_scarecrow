@@ -128,6 +128,7 @@ public class Part1_field : MonoBehaviour
         }
         else if (GameManager.Part1 == 22)
         {
+            scarecrow.SetActive(true);
             talk.SetMsg("와, 너무 고마워. 나 이제 팔이 아프지가 않아!! 너 덕분이야, (이름)아!!!!");
             for (int i = 0; i < script_list_2.Length; i++)
             {

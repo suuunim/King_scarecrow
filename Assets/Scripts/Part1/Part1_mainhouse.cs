@@ -50,7 +50,7 @@ public class Part1_mainhouse : MonoBehaviour
 
         if (GameManager.Part1 == 6) {
 
-            if (clickCount == 6)
+            if (clickCount == 7)
             {
 
                 StartCoroutine("FadeAway");
