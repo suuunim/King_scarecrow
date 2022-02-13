@@ -350,6 +350,7 @@ MonoBehaviour:
   greenOnion: {fileID: 2800000, guid: c50f0c92a1ee2fe4db01a22160afd23d, type: 3}
   homi: {fileID: 2800000, guid: b6e4224561790c840948eb83fa4a63e8, type: 3}
   watering: {fileID: 2800000, guid: df31ce8ab04507e4db0af183f026b16e, type: 3}
+  original: {fileID: 2800000, guid: 8bfa23e19f578134a857d2a419443543, type: 3}
   cursorControl: {fileID: 625235353}
 --- !u!1 &72954055
 GameObject:
@@ -1186,6 +1187,7 @@ GameObject:
   - component: {fileID: 377909485}
   - component: {fileID: 377909484}
   - component: {fileID: 377909488}
+  - component: {fileID: 377909489}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1298,6 +1300,19 @@ MonoBehaviour:
   completed_c: {fileID: 21300000, guid: 89ed6da138614f749af40144c3829c6c, type: 3}
   completed_g: {fileID: 21300000, guid: 196f3ec34342f3c4a8d38a4e75a9b959, type: 3}
   sprout: {fileID: 21300000, guid: 4ffbd36de18eea24da9ab2ec81a717ab, type: 3}
+--- !u!114 &377909489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377909483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45dbb5bc9ac735449816a2b67c0ff4de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  original: {fileID: 2800000, guid: 8bfa23e19f578134a857d2a419443543, type: 3}
 --- !u!1 &412365266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1619,7 @@ MonoBehaviour:
   greenOnion: {fileID: 2800000, guid: c50f0c92a1ee2fe4db01a22160afd23d, type: 3}
   homi: {fileID: 2800000, guid: b6e4224561790c840948eb83fa4a63e8, type: 3}
   watering: {fileID: 2800000, guid: df31ce8ab04507e4db0af183f026b16e, type: 3}
+  original: {fileID: 2800000, guid: 8bfa23e19f578134a857d2a419443543, type: 3}
   cursorControl: {fileID: 625235353}
 --- !u!1 &465811027
 GameObject:
@@ -3728,6 +3744,7 @@ MonoBehaviour:
   greenOnion: {fileID: 2800000, guid: c50f0c92a1ee2fe4db01a22160afd23d, type: 3}
   homi: {fileID: 2800000, guid: b6e4224561790c840948eb83fa4a63e8, type: 3}
   watering: {fileID: 2800000, guid: df31ce8ab04507e4db0af183f026b16e, type: 3}
+  original: {fileID: 2800000, guid: 8bfa23e19f578134a857d2a419443543, type: 3}
   cursorControl: {fileID: 625235353}
 --- !u!1 &1119883583
 GameObject:
@@ -4418,6 +4435,7 @@ MonoBehaviour:
   greenOnion: {fileID: 2800000, guid: c50f0c92a1ee2fe4db01a22160afd23d, type: 3}
   homi: {fileID: 2800000, guid: b6e4224561790c840948eb83fa4a63e8, type: 3}
   watering: {fileID: 2800000, guid: df31ce8ab04507e4db0af183f026b16e, type: 3}
+  original: {fileID: 2800000, guid: 8bfa23e19f578134a857d2a419443543, type: 3}
   cursorControl: {fileID: 625235353}
 --- !u!1 &1421379132
 GameObject:
@@ -5769,6 +5787,7 @@ MonoBehaviour:
   greenOnion: {fileID: 2800000, guid: c50f0c92a1ee2fe4db01a22160afd23d, type: 3}
   homi: {fileID: 2800000, guid: b6e4224561790c840948eb83fa4a63e8, type: 3}
   watering: {fileID: 2800000, guid: df31ce8ab04507e4db0af183f026b16e, type: 3}
+  original: {fileID: 2800000, guid: 8bfa23e19f578134a857d2a419443543, type: 3}
   cursorControl: {fileID: 625235353}
 --- !u!114 &1759705828
 MonoBehaviour:

@@ -11,6 +11,7 @@ public class cursorChange : MonoBehaviour
     public Texture2D greenOnion;
     public Texture2D homi;
     public Texture2D watering;
+    public Texture2D original;
     public Text cursorControl;
 
     //cursorControl
@@ -22,35 +23,68 @@ public class cursorChange : MonoBehaviour
     //5 : 호미 누른 상태
 
 
+    public void changeToOriginal()
+    {
+        Cursor.SetCursor(original, Vector2.zero, CursorMode.ForceSoftware);
+        cursorControl.text = "0";
+    }
+    //무씨앗 클릭 함수
     public void clickSeed1()
     {
-        //무씨앗 클릭 함수
-        Cursor.SetCursor(raddish, Vector2.zero, CursorMode.ForceSoftware);
-        cursorControl.text = "1";    
+        if (cursorControl.text == "1")
+            changeToOriginal();
+        else
+        {
+            Cursor.SetCursor(raddish, Vector2.zero, CursorMode.ForceSoftware);
+            cursorControl.text = "1";
+        }
+
+
     }
     public void clickSeed2()
       {
-        //배추씨앗 클릭 함수
-          Cursor.SetCursor(cabbage, Vector2.zero, CursorMode.ForceSoftware);
-        cursorControl.text = "2";
+        if (cursorControl.text == "2")
+            changeToOriginal();
+        else
+        {
+            Cursor.SetCursor(cabbage, Vector2.zero, CursorMode.ForceSoftware);
+            cursorControl.text = "2";
+        }
+            
     }
     public void clickSeed3()
       {
-        //파 씨앗 클릭 함수
-          Cursor.SetCursor(greenOnion, Vector2.zero, CursorMode.ForceSoftware);
-        cursorControl.text = "3";
+        if (cursorControl.text == "2")
+            changeToOriginal();
+        else
+        {
+            Cursor.SetCursor(greenOnion, Vector2.zero, CursorMode.ForceSoftware);
+            cursorControl.text = "3";
+        }
+       
     }
 
     public void clickHomi()
     {
-        //호미 클릭 함수
-        Cursor.SetCursor(homi, Vector2.zero, CursorMode.ForceSoftware);
-        cursorControl.text = "5";
+        if(cursorControl.text == "5")
+        {
+            changeToOriginal();
+        }
+        else
+        {
+            Cursor.SetCursor(homi, Vector2.zero, CursorMode.ForceSoftware);
+            cursorControl.text = "5";
+        }
+ 
     }
     public void clickwatering()
     {
-        //물뿌리개 클릭 함수
-        Cursor.SetCursor(watering, Vector2.zero, CursorMode.ForceSoftware);
-        cursorControl.text = "4";
+        if (cursorControl.text == "4")
+            changeToOriginal();
+        else
+        {
+            Cursor.SetCursor(watering, Vector2.zero, CursorMode.ForceSoftware);
+            cursorControl.text = "4";
+        }
     }
 }
