@@ -54,11 +54,8 @@ public class Part1_headhouse : MonoBehaviour
 
         if (GameManager.Part1 == 11)
         {
-            if (clickCount == 1)
-            {
-                StartCoroutine("FadeAway");
-            }
-            else if (clickCount == 10)
+            
+            if (clickCount == 10)
             {
                 Yes.gameObject.SetActive(true);
                 No.gameObject.SetActive(true);
@@ -145,10 +142,14 @@ public class Part1_headhouse : MonoBehaviour
     public void StartTalk()
     {
 
-        
+        fadeimg.enabled = false;
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-       
-    
+        if (GameManager.Part1 == 11)
+        {
+            StartCoroutine("FadeAway");
+        }
+
+
     }
 
 
@@ -184,6 +185,7 @@ public class Part1_headhouse : MonoBehaviour
         else if (GameManager.Part1 == 11)
         {
             talk.SetMsg("그러니까.. 자네가 농작물을 수확했는데, 팔 곳이 없다 이 말이지?");
+            
             for (int i = 0; i < script_list_3.Length; i++)
             {
                 

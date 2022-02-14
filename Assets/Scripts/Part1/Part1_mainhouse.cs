@@ -50,7 +50,7 @@ public class Part1_mainhouse : MonoBehaviour
 
         if (GameManager.Part1 == 6) {
 
-            if (clickCount == 7)
+            if (clickCount == 6)
             {
 
                 StartCoroutine("FadeAway");
@@ -144,11 +144,13 @@ public class Part1_mainhouse : MonoBehaviour
 
         fadeimg.enabled = false;
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        if(GameManager.Part1 == 18)
+        if (GameManager.Part1 == 18)
         {
-
             StartCoroutine("FadeAway");
-
+        }
+        if (GameManager.Part1 == 14)
+        {
+            StartCoroutine("FadeAway");
         }
 
     }
@@ -207,7 +209,7 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 18)
         {
-            
+           
             talk.SetMsg("꿈이 아니네. 나는 이 마을에 갇혔구나. 그래, 그냥 이장에게 협조하자.");
             for (int i = 0; i < script_list_6.Length; i++)
             {

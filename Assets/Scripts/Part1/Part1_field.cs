@@ -44,7 +44,7 @@ public class Part1_field : MonoBehaviour
                 Yes.gameObject.SetActive(true);
                 No.gameObject.SetActive(true);
             }
-            else if (clickCount == 7)
+            else if (clickCount == 6)
             {
                 scarecrow.SetActive(true);
             }
