@@ -21,7 +21,7 @@ public class Part1_field : MonoBehaviour
     GameObject npc;
     public GameManager manager;
 
-
+    int MoveToMap = 0;
     public GameObject scarecrow;
 
 
@@ -34,7 +34,12 @@ public class Part1_field : MonoBehaviour
 
     public void OnClickNextText()//다음으로 넘어가는 버튼 클릭 시 실행되는 함수
     {
+        if (MoveToMap == 1)
+        {
+            clickCount = 0;
+            SceneManager.LoadScene("Map");
 
+        }
 
         if (GameManager.Part1 == 20)
         {
@@ -48,6 +53,9 @@ public class Part1_field : MonoBehaviour
             {
                 scarecrow.SetActive(true);
             }
+
+
+
         }
         else if(GameManager.Part1 == 22)
         {
@@ -137,6 +145,19 @@ public class Part1_field : MonoBehaviour
 
 
             }
+
+        }
+        else
+        {
+            for (int i = 0; i < script_list_1.Length; i++)
+            {
+
+                script_list = script_list_1.Clone() as string[];
+
+
+            }
+            talk.SetMsg("이곳에 볼 일은 없다.");
+            MoveToMap = 1;
 
         }
 
