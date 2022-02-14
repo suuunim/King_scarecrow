@@ -83,18 +83,18 @@ public class GField : MonoBehaviour
         Image img = obj.image;
         sp = obj.image.sprite;
 
-        if (obj.transform.GetChild(0).GetComponent<Text>().text == "13")//파 다 자랐을 때
-        {//성공 실패로 나누기
+        string state = obj.transform.GetChild(0).GetComponent<Text>().text;
+        if (state == "13" || state =="14")//파 다 자랐을 때
+        {
             if (img.sprite == complete)
             {
                 Debug.Log("수확성공");
                 result.text = (int.Parse(result.text) + 1).ToString();
-                //json파일도 수정하기
+                //DataController.Instance.gameData.greenOnionNum++;
             }
             img.sprite = initial;
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
-
-            //수확 성공했으면 수확한 작물 수 ++ 시키기
+            
         }
 
         //파 씨앗 클릭 후 파밭을 클릭하는 경우
@@ -103,20 +103,16 @@ public class GField : MonoBehaviour
             Debug.Log(this.GetComponent<Button>() + "seed complete");
             img.sprite = seed;
             obj.transform.GetChild(0).GetComponent<Text>().text = "2";
-            //씨앗갯수 감소 코드 추가하기
-            //json 파일 내 변수도 감소시키기
             seedGNum.text = (int.Parse(seedGNum.text) - 1).ToString();
         }
 
         else if (cursorControl.text == "4")
         {
-            //밭 새싹 그래픽으로 변경
             parent = transform.parent.gameObject;
             changeImageToWatered();
         }
         else if (cursorControl.text == "5")
         {
-            //밭갈아진 그래픽으로 변경
             parent = transform.parent.gameObject;
             changeImageToPlowed();
         }

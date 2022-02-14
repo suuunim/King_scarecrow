@@ -43,80 +43,80 @@ public class FieldTimer : MonoBehaviour
     private void timesUpR(int i)
     {
         rTimer[i] = 0.0f;
+        //GameData gd = DataController.Instance.gameData;
+        //int num = gd.seedRArr[gd.seedRNum--];
+        int p = Random.Range(1, 100);
         if (SceneManager.GetActiveScene().name == "Farming")
         {
             target = GameObject.Find("field1").transform.GetChild(i);
             img = target.GetComponent<Image>();
             txt = target.GetChild(0).GetComponent<Text>();
-            txt.text = "6";
 
-            //씨앗 배열, 씨앗의 갯수 각각 json에 저장해두기
-            //씨앗 배열에 저장된 확률에 따라 성공 또는 실패
-
-            /*
-             int num = json무씨앗배열[json에서 씨앗갯수 가져온거];
-             if(Random.Range(1, 100) <= num)
-            {
-            img.sprite = completeR;
-            json에서 수확물 결과 저장하기
-            수확한 작물 개수 텍스트 바꾸기
-            //성공
-            }
-            else
-            {
-            fail;
-            }
-             */
+            //num 연결 후 받아온 num으로 변경시키기
             int num = 50;
-            if (Random.Range(1, 100) <= num)
+            if (p <= num)
+            {
                 img.sprite = completeR;
-            
+                txt.text = "6";
+            }
             else
+            { 
                 img.sprite = rottenR;
+                txt.text = "7";
+            }
 
         }
+        /*else//농사게임 화면이 아닐 때 작물이 다 자란 경우
+        {
+            if (p <= num)
+                gd.fieldR[i] = 6;
+            else
+                gd.fieldR[i] = 7;
+
+        }*/
     }
 
     private void timesUpC(int i)
     {
         cTimer[i] = 0.0f;
+        //GameData gd = DataController.Instance.gameData;
+        //int num = gd.seedCArr[gd.seedCNum--];
+        int p = Random.Range(1, 100);
         if (SceneManager.GetActiveScene().name == "Farming")
         {
             target = GameObject.Find("field2").transform.GetChild(i);
             img = target.GetComponent<Image>();
             txt = target.GetChild(0).GetComponent<Text>();
-            txt.text = "10";
 
-            //씨앗 배열, 씨앗의 갯수 각각 json에 저장해두기
-            //씨앗 배열에 저장된 확률에 따라 성공 또는 실패
-
-            /*
-             int num = json무씨앗배열[json에서 씨앗갯수 가져온거];
-             if(Random.Range(1, 100) <= num)
-            {
-            img.sprite = completeR;
-            json에서 수확물 결과 저장하기
-            수확한 작물 개수 텍스트 바꾸기
-            //성공
-            }
-            else
-            {
-            fail;
-            }
-             */
+            //num 연결 후 받아온 num으로 변경시키기
             int num = 50;
-            if (Random.Range(1, 100) <= num)
+            if (p <= num)
+            {
+                txt.text = "10";
                 img.sprite = completeC;
-
+            }
             else
-                img.sprite = rottenC;
-
+            {
+                txt.text = "11";
+                img.sprite = rottenC; 
+            }
         }
+        /*else//농사게임 화면이 아닐 때 작물이 다 자란 경우
+       {
+           if (p <= num)
+               gd.fieldC[i] = 10;
+           else
+               gd.fieldC[i] = 11;
+
+       }*/
     }
 
     private void timesUpG(int i)
     {
         gTimer[i] = 0.0f;
+        //GameData gd = DataController.Instance.gameData;
+        //int num = gd.seedGArr[gd.seedGNum--];
+        int p = Random.Range(1, 100);
         if (SceneManager.GetActiveScene().name == "Farming")
         {
             target = GameObject.Find("field3").transform.GetChild(i);
@@ -124,31 +124,28 @@ public class FieldTimer : MonoBehaviour
             txt = target.GetChild(0).GetComponent<Text>();
             txt.text = "13";
 
-            //씨앗 배열, 씨앗의 갯수 각각 json에 저장해두기
-            //씨앗 배열에 저장된 확률에 따라 성공 또는 실패
-
-            /*
-             int num = json무씨앗배열[json에서 씨앗갯수 가져온거];
-             if(Random.Range(1, 100) <= num)
-            {
-            img.sprite = completeR;
-            json에서 수확물 결과 저장하기
-            수확한 작물 개수 텍스트 바꾸기
-            //성공
-            }
-            else
-            {
-            fail;
-            }
-             */
+            //num gd.seedG어쩌고로 바꾸기
             int num = 50;
-            if (Random.Range(1, 100) <= num)
+            if (p <= num)
+            { 
                 img.sprite = completeG;
+                txt.text = "13";
+            }
 
             else
+            {
                 img.sprite = rottenG;
-
+                txt.text = "14";
+            }
         }
+        /*else//농사게임 화면이 아닐 때 작물이 다 자란 경우
+         {
+          if (p <= num)
+              gd.fieldC[i] = 10;
+          else
+              gd.fieldC[i] = 11;
+
+         }*/
     }
 
     // Update is called once per frame
@@ -158,10 +155,8 @@ public class FieldTimer : MonoBehaviour
         {
 
             if (rTimer[i] >= 6)
-            {
                 timesUpR(i);
-                //json파일의 배열값 변화시키기
-            }
+            
 
             else if (rTimer[i] >= 3)
             { 
@@ -170,10 +165,7 @@ public class FieldTimer : MonoBehaviour
             }
 
             if (cTimer[i] >= 10)
-            {
                 timesUpC(i);
-                //json파일의 배열값 변화시키기
-            }
 
             else if (cTimer[i] >= 3)
             {
@@ -182,10 +174,7 @@ public class FieldTimer : MonoBehaviour
             }
 
             if (gTimer[i] >= 13)
-            {
                 timesUpG(i);
-                //json파일의 배열값 변화시키기
-            }
 
             else if (gTimer[i] >= 3)
             {

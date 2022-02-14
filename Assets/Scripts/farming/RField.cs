@@ -83,18 +83,18 @@ public class RField : MonoBehaviour
         Image img = obj.image;
         sp = obj.image.sprite;
 
-        if (obj.transform.GetChild(0).GetComponent<Text>().text == "6")//무 다 자랐을 때
-        {//성공 실패로 나누기
+        string state = obj.transform.GetChild(0).GetComponent<Text>().text;
+        if (state == "6" || state == "7")//무 다 자랐을 때
+        {
             if(img.sprite == complete)
             {
                 Debug.Log("수확성공");
                 result.text = (int.Parse(result.text) + 1).ToString();
-                //json파일도 수정하기
+                //DataController.Instance.gameData.raddishNum++;
             }
             img.sprite = initial;
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
             
-            //수확 성공했으면 수확한 작물 수 ++ 시키기
         }
 
         //무씨앗 클릭 이후 무밭을 클릭하는 경우
@@ -104,8 +104,6 @@ public class RField : MonoBehaviour
             Debug.Log(this.GetComponent<Button>() + "seed complete");
             img.sprite = seed;
             obj.transform.GetChild(0).GetComponent<Text>().text = "2";
-            //씨앗갯수 감소 코드 추가하기
-            //json 파일 내 변수도 감소시키기
             seedRNum.text = (int.Parse(seedRNum.text) - 1).ToString();
         }
 
