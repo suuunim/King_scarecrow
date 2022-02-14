@@ -14,7 +14,7 @@ public class Part1_fieldscript : MonoBehaviour
     public GameObject talkUI;
     public Button ButtonTalk;
     public Button ButtonTask;
-
+    int MoveToMap = 0;
     public int clickCount = 0;
     public static int spaceCount = 0;
 
@@ -35,6 +35,15 @@ public class Part1_fieldscript : MonoBehaviour
 
     public void OnClickNextText()
     {
+
+
+
+        if (MoveToMap == 1)
+        {
+            clickCount = 0;
+            SceneManager.LoadScene("Map");
+
+        }
 
         if (GameManager.Part1 == 7)
         {
@@ -64,6 +73,7 @@ public class Part1_fieldscript : MonoBehaviour
                 SceneManager.LoadScene("Map");
             }
         }
+        
 
 
         string str = script_list[clickCount];
@@ -129,6 +139,20 @@ public class Part1_fieldscript : MonoBehaviour
                 script_list = script_list_3.Clone() as string[];
 
             }
+
+        }
+        else
+        {
+            for (int i = 0; i < script_list_1.Length; i++)
+            {
+
+                script_list = script_list_1.Clone() as string[];
+
+
+            }
+
+            talk.SetMsg("이곳에 볼 일은 없다.");
+            MoveToMap = 1;
 
         }
 

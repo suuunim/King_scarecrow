@@ -48,6 +48,7 @@ public class Part1_headhouse : MonoBehaviour
 
         if (MoveToMap == 1)
         {
+            clickCount = 0;
             SceneManager.LoadScene("Map");
 
         }

@@ -16,7 +16,7 @@ public class Part1_villagehall : MonoBehaviour
 
     public int clickCount = 0;
     public static int spaceCount = 0;
-
+    int MoveToMap = 0;
     GameObject npc;
     public GameManager manager;
 
@@ -34,7 +34,12 @@ public class Part1_villagehall : MonoBehaviour
 
     public void OnClickNextText()
     {
+        if (MoveToMap == 1)
+        {
+            clickCount = 0;
+            SceneManager.LoadScene("Map");
 
+        }
 
         if (clickCount == 5)
         {
@@ -158,6 +163,19 @@ public class Part1_villagehall : MonoBehaviour
                 script_list = script_list_3.Clone() as string[];
 
             }
+        }
+        else
+        {
+            for (int i = 0; i < script_list_1.Length; i++)
+            {
+
+                script_list = script_list_1.Clone() as string[];
+
+
+            }
+            talk.SetMsg("이곳에 볼 일은 없다.");
+            MoveToMap = 1;
+
         }
 
         StartTalk();
