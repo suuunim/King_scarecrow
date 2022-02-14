@@ -27,46 +27,69 @@ public class Part1_grandmother : MonoBehaviour
     public GameObject backgroud_home;
     public GameObject backgroud_company;
 
-    string[] script_list_1 = new string[] { "안녕하세요. 새로 이사 온 (이름)입니다!", "… 청년은 몇 살이예요?", " 25살입니다!", "6살이나 많구만..", "아, 혹시 손주 분이랑 같이 지내시나요?", "할머니, 언제 들어오세요?", "어.. 손주가 많이 어리네요?", "청년.", "이곳은위험한곳이야.나쁜일에휘말리기전에얼른떠나는게좋을거야.나는이미다늙었고이곳을떠날수도없지만,자네는미래가창창하잖나.그러니내조언을새겨듣기를바라.그래야만청년이정상적으로살아갈수있어.", "꼭.꼭.떠나게나.", "뭐지... 방금?" };
+    string[] script_list_1 = new string[] { "… 청년은 몇 살이예요?", " 25살입니다!", "6살이나 많구만..", "아, 혹시 손주 분이랑 같이 지내시나요?", "할머니, 언제 들어오세요?", "어.. 손주가 많이 어리네요?", "청년.", "이곳은위험한곳이야.나쁜일에휘말리기전에얼른떠나는게좋을거야.나는이미다늙었고이곳을떠날수도없지만,자네는미래가창창하잖나.그러니내조언을새겨듣기를바라.그래야만청년이정상적으로살아갈수있어.", "꼭.꼭.떠나게나.", "뭐지... 방금?" };
+    string[] script_list = new string[] { };
 
-    
     public void OnClickNextText()
     {
 
         
 
-            string str = script_list_1[clickCount];
+          
 
-
-
-
-            talk.SetMsg(str);
-
-            clickCount++;
-
-            if (clickCount == 11)
+            if (clickCount == 10)
             {
 
-                GameManager.Part1++;
+                
+            if (GameManager.Part1 == 5)
+            {
+                clickCount = 0;
                 SceneManager.LoadScene("Mmainhouse");
-
+                GameManager.Part1++;
             }
-        
-        
-        //if (clickCount == 2)
-        //{
-        //    backgroud_home.SetActive(false);
-        //    backgroud_company.SetActive(true);
-        //}
+            else
+            {
+                clickCount = 0;
+                SceneManager.LoadScene("Map");
+                GameManager.Part1++;
+            }
 
-        //if (clickCount == 7)
-        //{
-        //    backgroud_company.SetActive(false);
-        //    backgroud_home.SetActive(true);
+        }
 
 
-        //}
+        if (GameManager.Part1 == 5)
+        {
+            if (clickCount == 10)
+            {
+                clickCount = 0;
+                SceneManager.LoadScene("Mmainhouse");
+                GameManager.Part1++;
+            }
 
+
+        }
+        else
+        {
+            if (clickCount == 10)
+            {
+                clickCount = 0;
+                SceneManager.LoadScene("Map");
+                GameManager.Part1++;
+            }
+        }
+      
+
+
+
+
+        string str = script_list[clickCount];
+
+
+
+
+        talk.SetMsg(str);
+
+        clickCount++;
 
 
 
@@ -91,8 +114,18 @@ public class Part1_grandmother : MonoBehaviour
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 
+        if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
+        {
+            talk.SetMsg("안녕하세요. 새로 이사 온 (이름)입니다!");
+            for (int i = 0; i < script_list_1.Length; i++)
+            {
 
-        
+                script_list = script_list_1.Clone() as string[];
+
+            }
+
+        }
+
         StartTalk();
 
        
