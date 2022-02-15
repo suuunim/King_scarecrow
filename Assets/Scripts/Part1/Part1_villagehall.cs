@@ -9,6 +9,15 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_villagehall : MonoBehaviour
 {
+
+    public AudioClip footsteps_dirt_shoe;
+    public AudioClip boots_gritty;
+    public AudioClip footsteps_concrete;
+    public AudioClip footstep_stones;
+    public AudioClip door_front_opening_a;
+    public AudioClip door_front_closing_a;
+    public AudioSource audioSource;
+
     public TalkEffect talk;
     public GameObject talkUI;
     public Button ButtonTalk;
@@ -17,12 +26,15 @@ public class Part1_villagehall : MonoBehaviour
     public int clickCount = 0;
     public static int spaceCount = 0;
     int MoveToMap = 0;
+    
     GameObject npc;
     public GameManager manager;
 
     public Image fadeimg;
-    public Image img_player;
-    public Image img_npc;
+    public GameObject headimg;
+    public GameObject farmer;
+    public GameObject grandmother;
+    public GameObject downstairs;
 
     public GameObject background_in;
     public GameObject background_out;
@@ -41,62 +53,86 @@ public class Part1_villagehall : MonoBehaviour
 
         }
 
-        if (clickCount == 5)
+
+        if (GameManager.Part1 == 10)
         {
-            if (GameManager.Part1 == 10)
+            if (clickCount == 5)
             {
                 background_in.SetActive(false);
                 background_out.SetActive(true);
             }
-        }
 
-        if (clickCount == 12)
-        {
-            if (GameManager.Part1 == 2)
-            {
-                clickCount = 0;
-                GameManager.Part1 = 3;
-                SceneManager.LoadScene("Map");
-            }
-
-        }
-
-        if (clickCount == 11)
-        {
-            if (GameManager.Part1 == 10)
+            if (clickCount == 11)
             {
                 clickCount = 0;
                 GameManager.Part1 = 11;
                 SceneManager.LoadScene("Mheadhouse");
             }
-
-
         }
-
-        if (clickCount == 19)
+        else if (GameManager.Part1 == 2)
         {
-            if (GameManager.Part1 == 14)
+            if (clickCount == 12)
             {
                 clickCount = 0;
-               
+                GameManager.Part1 = 3;
+                SceneManager.LoadScene("Map");
+            }
+            else if (clickCount == 9)
+            {
+                audioSource.PlayOneShot(footsteps_dirt_shoe);
+                audioSource.PlayOneShot(boots_gritty);
+                audioSource.PlayOneShot(footsteps_concrete);
+                audioSource.PlayOneShot(footstep_stones);
+                if (audioSource.time == 3)
+                {
+                    audioSource.Stop();
+                   
+                }
+
+            }
+            else if (clickCount ==5)
+            {
+                farmer.SetActive(true);
+                headimg.SetActive(false);
+            }
+            else if (clickCount == 6)
+            {
+                farmer.SetActive(false);
+                grandmother.SetActive(true);
+                
+            }
+            else if (clickCount == 7)
+            {
+                grandmother.SetActive(false);
+                downstairs.SetActive(true);
+
+            }
+            else if (clickCount == 8)
+            {
+                headimg.SetActive(true);
+                downstairs.SetActive(false);
+
+            }
+        }
+        else if (GameManager.Part1 == 14)
+        {
+            if (clickCount == 19)
+            {
+                clickCount = 0;
+
                 SceneManager.LoadScene("Mmainhouse");
             }
+            else if (clickCount == 0)
+            {
+                playSound("village_door_open");
+                headimg.SetActive(true);
 
+            }
         }
-        //if (clickCount == 2)
-        //{
-        //    backgroud_home.SetActive(false);
-        //    backgroud_company.SetActive(true);
-        //}
-
-        //if (clickCount == 7)
-        //{
-        //    backgroud_company.SetActive(false);
-        //    backgroud_home.SetActive(true);
 
 
-        //}
 
+       
 
         string str = script_list[clickCount];
 
@@ -130,7 +166,7 @@ public class Part1_villagehall : MonoBehaviour
 
         if (GameManager.Part1 == 2)
         {
-
+            headimg.SetActive(true);
             talk.SetMsg("신고할 용건이 있습니다. (이름)씨! 이리로 와서 자기 소개해요.");
             background_in.SetActive(true);
             for (int i = 0; i < script_list_1.Length; i++)
@@ -143,6 +179,9 @@ public class Part1_villagehall : MonoBehaviour
         }
         else if (GameManager.Part1 == 10)
         {
+            headimg.SetActive(true);
+            playSound("village_door_open");
+            SoundCoroutine("village_door_close");
             background_in.SetActive(true);
             talk.SetMsg("!!!!!!!!!!!!");
             for (int i = 0; i < script_list_2.Length; i++)
@@ -181,6 +220,45 @@ public class Part1_villagehall : MonoBehaviour
         StartTalk();
 
     }
+
+    void Awake()
+    {
+
+        this.audioSource = GetComponent<AudioSource>();
+
+    }
+
+    void playSound(String action)
+    {
+
+        switch (action)
+        {
+            case "village_door_open":
+                audioSource.clip = door_front_opening_a;
+                break;
+
+
+
+        }
+
+        audioSource.Play();
+
+    }
+
+
+  
+
+
+
+    IEnumerator SoundCoroutine(String action)
+    {
+
+        yield return new WaitForSeconds(1.5f); // 3초 지연
+        playSound("village_door_close");
+
+    }
+    
+    
 
     IEnumerator FadeAway()
     {
