@@ -131,8 +131,7 @@ public class Part1_farmer : MonoBehaviour
             }
 
         }
-
-        if (GameManager.Part1 == 8) {
+        else if (GameManager.Part1 == 8) {
             talk.SetMsg("어르신! 저번에 인사드린 (이름)입니다. 여쭤 볼 게 있어서 왔어요! ");
             for (int i = 0; i < script_list_2.Length; i++)
             {

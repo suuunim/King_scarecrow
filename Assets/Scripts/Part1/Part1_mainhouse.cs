@@ -20,7 +20,9 @@ public class Part1_mainhouse : MonoBehaviour
     GameObject npc;
     public GameManager manager;
 
-
+    public AudioClip tissue_box;
+    public AudioClip alescouezec;
+    public AudioSource audioSource;
 
 
     public float FadeTime = 2f;
@@ -204,6 +206,9 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 16)
         {
+            audioSource.PlayOneShot(tissue_box);
+            audioSource.PlayOneShot(alescouezec);
+            
             talk.SetMsg("이제 차 타고 나가기만 하면 돼. 휴대폰 없어도 뭐, 차 있으니까 괜찮네.");
             for (int i = 0; i < script_list_4.Length; i++)
             {
@@ -262,15 +267,18 @@ public class Part1_mainhouse : MonoBehaviour
 
     }
 
+  
+
     void Awake()
     {
 
 
-      
-       
+        this.audioSource = GetComponent<AudioSource>();
+
+
 
 
     }
-  
-    
+
+
 }

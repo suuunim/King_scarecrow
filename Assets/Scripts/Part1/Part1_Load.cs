@@ -21,8 +21,8 @@ public class Part1_Load : MonoBehaviour
     public GameManager manager;
 
 
-    public Image img_player;
-    public Image img_npc;
+    public GameObject farmer_F;
+  
 
     public GameObject backgroud_home;
     public GameObject backgroud_company;
@@ -54,6 +54,11 @@ public class Part1_Load : MonoBehaviour
                 GameManager.Part1 = 17;
                 SceneManager.LoadScene("Mfarmer");
             }
+            else if (clickCount == 2)
+            {
+                farmer_F.SetActive(true);
+            }
+
 
 
         }
@@ -115,7 +120,7 @@ public class Part1_Load : MonoBehaviour
 
         }
         else if (GameManager.Part1 == 17) {
-
+            farmer_F.SetActive(false);
             talk.SetMsg("허… 정신 나간 마을 주민이 한 명 더 있었어! 돌고 돌아 또 이 마을이라니.");
             for (int i = 0; i < script_list_2.Length; i++)
             {
