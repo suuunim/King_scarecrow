@@ -42,7 +42,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Map/Mfarmer.unity
     guid: bad6855236017cd4aaaaa7b7e4af75ba
   - enabled: 1
-    path: Assets/Scenes/Farming.unity
+    path: Assets/Scenes/Farming_todelete.unity
     guid: e1f754ba2a89562439ec7825760a5e24
   - enabled: 1
     path: Assets/Scenes/Map/Mmainhouse.unity
