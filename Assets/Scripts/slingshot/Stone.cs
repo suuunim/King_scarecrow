@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Stone : MonoBehaviour
 {
@@ -12,7 +14,12 @@ public class Stone : MonoBehaviour
     private SpringJoint2D sj;
     private Rigidbody2D slingRb;
 
-   
+    public AudioClip dragSound;
+    public AudioClip shootSound;
+    public AudioSource audioSource;
+
+
+
     public GameObject NextStone;
     public float stonePositionOffset;
     private float circleRadius;
@@ -22,7 +29,7 @@ public class Stone : MonoBehaviour
 
     private void Awake()
     {
-
+        this.audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         sj = GetComponent<SpringJoint2D>();
         slingRb = sj.connectedBody;
@@ -30,15 +37,34 @@ public class Stone : MonoBehaviour
 
     }
 
+    void playSound(string action)
+    {
+
+        switch (action)
+        {
+            case "dragSound":
+                audioSource.clip = dragSound;
+                break;
+            case "shootSound":
+                audioSource.clip = shootSound;
+                break;
 
 
-   
+
+        }
+
+        audioSource.Play();
+
+    }
+
+
     // Update is called once per frame
     void Update()
     {
 
         if (isPressed)
         {
+            
             DragStone();
 
             
@@ -71,7 +97,7 @@ public class Stone : MonoBehaviour
 
     private void OnMouseDown()
     {
-
+        playSound("dragSound");
         isPressed = true;
         rb.isKinematic = true;
 
@@ -85,7 +111,7 @@ public class Stone : MonoBehaviour
         rb.isKinematic = false;
         GameManager.instance.stoneNumber();
 
-
+        playSound("shootSound");
         StartCoroutine(Release());
     }
 
