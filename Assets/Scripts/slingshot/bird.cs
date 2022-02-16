@@ -18,6 +18,9 @@ public class bird : MonoBehaviour
     public GameObject targetPosition6;
     public GameObject targetPosition7;
 
+    public AudioClip hitSound;
+    public AudioClip killSound;
+    public AudioSource audioSource;
 
     List<GameObject> targetlist_L = new List<GameObject>();
 
@@ -29,6 +32,8 @@ public class bird : MonoBehaviour
 
     void Awake() {
 
+        this.audioSource = GetComponent<AudioSource>();
+
         targetlist_L.Add(targetPosition0);
         targetlist_L.Add(targetPosition1);
         targetlist_L.Add(targetPosition2);
@@ -39,6 +44,26 @@ public class bird : MonoBehaviour
         targetlist_R.Add(targetPosition5);
         targetlist_R.Add(targetPosition6);
         targetlist_R.Add(targetPosition7);
+
+    }
+
+    void playSound(string action)
+    {
+
+        switch (action)
+        {
+            case "hitSound":
+                audioSource.clip = hitSound;
+                break;
+            case "killSound":
+                audioSource.clip = killSound;
+                break;
+
+
+
+        }
+
+        audioSource.Play();
 
     }
 
@@ -82,7 +107,7 @@ public class bird : MonoBehaviour
     void Hit()
     {
         HealthBar.value -= 5.5f;//줄어드는 체력
-
+        playSound("hitSound");
     }
 
     
@@ -150,7 +175,7 @@ public class bird : MonoBehaviour
             StopCoroutine("BirdMove");
             CancelInvoke("Hit");
             OnDamaged();
-
+            playSound("killSound");
             //gameObject.SetActive(false);
             //Destroy(gameObject);
         }
