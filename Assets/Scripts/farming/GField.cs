@@ -90,7 +90,7 @@ public class GField : MonoBehaviour
             {
                 Debug.Log("수확성공");
                 result.text = (int.Parse(result.text) + 1).ToString();
-                //DataController.Instance.gameData.greenOnionNum++;
+                DataController.Instance.gameData.greenOnionNum++;
             }
             img.sprite = initial;
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";

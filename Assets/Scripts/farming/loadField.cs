@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class loadField : MonoBehaviour
 {
-    //private GameData gd;
+    private GameData gd;
     public Sprite initial;
     public Sprite plowed;
     public Sprite seed_r;
@@ -30,14 +30,15 @@ public class loadField : MonoBehaviour
     //json 받아와서 썩은 상태의 작물일 때 로드하는 코드 넣기
     void loadFieldR(int[] arr)//무밭
     {
-        //GameObject.Find("btn_raddish").transform.GetChild(0).GetComponent<Text>().text = gd.seedRNum;
-        //GameObject.Find("result_bar").transform.GetChild(1).GetComponent<Text>().text = gd.raddishNum;
+        GameObject.Find("btn_raddish").transform.GetChild(0).GetComponent<Text>().text = gd.seedRNum.ToString();
+        GameObject.Find("result_bar").transform.GetChild(1).GetComponent<Text>().text = gd.raddishNum.ToString();
         GameObject tmp = null;
         for (int i = 0; i < 6; i++)
         {
             tmp = GameObject.Find("txt_rf" + i.ToString());
             Image img = tmp.transform.parent.GetComponent<Image>();
             Color color = img.color;
+            Debug.Log("무" + i + " " + arr[i]);
             switch (arr[i])
             {
                 case 0:
@@ -63,20 +64,23 @@ public class loadField : MonoBehaviour
             color.a = 1.0f;
             img.color = color;
             tmp.GetComponent<Text>().text = arr[i].ToString();
+            Debug.Log(i+": 무밭"+arr[i].ToString());
 
         }
 
     }
     void loadFieldC(int[] arr)//배추밭
     {
-        //GameObject.Find("btn_cabbage").transform.GetChild(0).GetComponent<Text>().text = gd.seedCNum;
-        //GameObject.Find("result_bar").transform.GetChild(2).GetComponent<Text>().text = gd.cabbageNum;
+        GameObject.Find("btn_cabbage").transform.GetChild(0).GetComponent<Text>().text = gd.seedCNum.ToString();
+        GameObject.Find("result_bar").transform.GetChild(2).GetComponent<Text>().text = gd.cabbageNum.ToString();
         GameObject tmp = null;
         for (int i = 0; i < 6; i++)
         {
             tmp = GameObject.Find("txt_cf" + i.ToString());
             Image img = tmp.transform.parent.GetComponent<Image>();
-            switch(arr[i])
+            Color color = img.color;
+            Debug.Log("배추" + i + " " + arr[i]);
+            switch (arr[i])
             {
                 case 0:
                     img.sprite = initial;
@@ -98,6 +102,9 @@ public class loadField : MonoBehaviour
                     break;
 
             }
+            color.a = 1.0f;
+            img.color = color;
+            Debug.Log(i + ": 배추밭" + arr[i].ToString());
             tmp.GetComponent<Text>().text = arr[i].ToString();
             
         }
@@ -105,8 +112,8 @@ public class loadField : MonoBehaviour
     }
     void loadFieldG(int[] arr)//파밭
     {
-        //GameObject.Find("btn_green_onion").transform.GetChild(0).GetComponent<Text>().text = gd.seedGNum;
-        //GameObject.Find("result_bar").transform.GetChild(3).GetComponent<Text>().text = gd.greenOnionNum;
+        GameObject.Find("btn_green_onion").transform.GetChild(0).GetComponent<Text>().text = gd.seedGNum.ToString();
+        GameObject.Find("result_bar").transform.GetChild(3).GetComponent<Text>().text = gd.greenOnionNum.ToString();
         //result_txt_greeon_onion
 
         GameObject tmp = null;
@@ -114,6 +121,8 @@ public class loadField : MonoBehaviour
         {
             tmp = GameObject.Find("txt_gf" + i.ToString());
             Image img = tmp.transform.parent.GetComponent<Image>();
+            Color color = img.color;
+            Debug.Log("파" + i + " " +arr[i]);
             switch (arr[i])
             {
                 case 0:
@@ -136,7 +145,11 @@ public class loadField : MonoBehaviour
                     break;
 
             }
+            color.a = 1.0f;
+            img.color = color;
             tmp.GetComponent<Text>().text = arr[i].ToString();
+            
+            Debug.Log(i + ": 파밭" + arr[i].ToString());
 
         }
 
@@ -147,24 +160,15 @@ public class loadField : MonoBehaviour
         //+)어떤씨앗인지 종류를 구분할 수 있는 씨앗배열, 수확한 작물 수, 밭상태 배열 로드하기
 
         //이부분 제이슨에서 배열 불러오는걸로 바꾸기
-        /*
+        
         gd = DataController.Instance.gameData;
         int[] tmpArr = gd.fieldR;
         int[] tmpArr2 = gd.fieldC;
         int[] tmpArr3 = gd.fieldG;
 
         loadFieldR(tmpArr);
-        loadFieldC(tmpArr);
-        loadFieldG(tmpArr);
-        */
-        int[] tmpArr = { 0, 0, 0, 0, 0, 0};
-        loadFieldR(tmpArr);
-
-        int[] tmpArr2 = { 0, 0, 0, 0, 0, 0 };
-        loadFieldC(tmpArr);
-
-        int[] tmpArr3 = { 0, 0, 0, 0, 0, 0 };
-        loadFieldG(tmpArr);
+        loadFieldC(tmpArr2);
+        loadFieldG(tmpArr3);
 
     }
 

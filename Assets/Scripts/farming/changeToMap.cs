@@ -10,7 +10,7 @@ public class changeToMap : MonoBehaviour
     {
         GameObject field;//밭 한줄 전체
         Transform target;//밭 한칸
-        //GameData gd = DataController.Instance.gameData;
+        GameData gd = DataController.Instance.gameData;
         string str;
         int stateNum;
 
@@ -24,7 +24,7 @@ public class changeToMap : MonoBehaviour
                 stateNum = int.Parse(str);
                 Debug.Log(target.name +" " + str +"\n");
                 
-                /*switch(i)
+                switch(i)
                 {
                     case 1:
                         gd.fieldR[j] = stateNum;
@@ -35,7 +35,7 @@ public class changeToMap : MonoBehaviour
                     case 3:
                         gd.fieldG[j] = stateNum;
                         break;
-                }*/
+                }
             }
         }
     }
@@ -44,7 +44,8 @@ public class changeToMap : MonoBehaviour
     public void goToMapScene()
     {
         saveField();
-        //SceneManager.LoadScene("MapTmp");
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        SceneManager.LoadScene("Map");
 
     }
 }

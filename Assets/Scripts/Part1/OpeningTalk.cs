@@ -28,7 +28,7 @@ public class OpeningTalk : MonoBehaviour
     public GameObject backgroud_home;
     public GameObject backgroud_company;
 
-    string[] script_list = new string[] { "공기도 좋고, 하늘도 맑고. 농사가 아주 잘 되겠어. 이 곳에서는 내 꿈을 이룰 수 있을 거야!", "뭔들 내 도시 생활보다는 낫겠지.. 하하.", a+"씨는 정신을 놓고 다니나? 회사 들어온 지 1년이 넘었는데 아직도 그런 실수를 하면 어떡해!?","죄송합니다, 죄송합니다… 시정하겠습니다.", "(이름)씨. 이건 지난 달에도 말해주지 않았나? (이름)씨 때문에 나까지 욕먹고 이게 뭐지? ","거래처 분들께 사과 말씀드리고 수정해서 다시 보내 드려요.","네, 알겠습니다. 바로 전화 드리겠습니다.","어우, 진짜 끔찍했다. 내가 일을 더럽게 못하긴 했어.","근데 지금 난 퇴사했잖아? 이번에는 잘해보자! 여기서 내 꿈을 이루는 거야. ","짐 정리는 끝냈으니까… 마을 분들께 인사부터 드려야겠다. ","이장님께 먼저 찾아가자!"};
+    string[] script_list;
 
 
     public void OnClickNextText()
@@ -81,7 +81,10 @@ public class OpeningTalk : MonoBehaviour
 
     void Start()
     {
-       
+        a = DataController.Instance.gameData.userName;
+        script_list = new string[]{ "공기도 좋고, 하늘도 맑고. 농사가 아주 잘 되겠어. 이 곳에서는 내 꿈을 이룰 수 있을 거야!", "뭔들 내 도시 생활보다는 낫겠지.. 하하.", a + "씨는 정신을 놓고 다니나? 회사 들어온 지 1년이 넘었는데 아직도 그런 실수를 하면 어떡해!?", "죄송합니다, 죄송합니다… 시정하겠습니다.", a + "씨. 이건 지난 달에도 말해주지 않았나?" + a + "씨 때문에 나까지 욕먹고 이게 뭐지? ", "거래처 분들께 사과 말씀드리고 수정해서 다시 보내 드려요.", "네, 알겠습니다. 바로 전화 드리겠습니다.", "어우, 진짜 끔찍했다. 내가 일을 더럽게 못하긴 했어.", "근데 지금 난 퇴사했잖아? 이번에는 잘해보자! 여기서 내 꿈을 이루는 거야. ", "짐 정리는 끝냈으니까… 마을 분들께 인사부터 드려야겠다. ", "이장님께 먼저 찾아가자!" };
+        
+        Debug.Log(a);
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 

@@ -43,8 +43,8 @@ public class FieldTimer : MonoBehaviour
     private void timesUpR(int i)
     {
         rTimer[i] = 0.0f;
-        //GameData gd = DataController.Instance.gameData;
-        //int num = gd.seedRArr[gd.seedRNum--];
+        GameData gd = DataController.Instance.gameData;
+        int num = gd.seedRArr[gd.seedRNum--];
         int p = Random.Range(1, 100);
         if (SceneManager.GetActiveScene().name == "Farming")
         {
@@ -52,8 +52,6 @@ public class FieldTimer : MonoBehaviour
             img = target.GetComponent<Image>();
             txt = target.GetChild(0).GetComponent<Text>();
 
-            //num 연결 후 받아온 num으로 변경시키기
-            int num = 50;
             if (p <= num)
             {
                 img.sprite = completeR;
@@ -66,21 +64,22 @@ public class FieldTimer : MonoBehaviour
             }
 
         }
-        /*else//농사게임 화면이 아닐 때 작물이 다 자란 경우
+        else//농사게임 화면이 아닐 때 작물이 다 자란 경우
         {
+            Debug.Log(i + "무가 농사게임 아닌곳에서 작물이 다자람");
             if (p <= num)
                 gd.fieldR[i] = 6;
             else
                 gd.fieldR[i] = 7;
 
-        }*/
+        }
     }
 
     private void timesUpC(int i)
     {
         cTimer[i] = 0.0f;
-        //GameData gd = DataController.Instance.gameData;
-        //int num = gd.seedCArr[gd.seedCNum--];
+        GameData gd = DataController.Instance.gameData;
+        int num = gd.seedCArr[gd.seedCNum--];
         int p = Random.Range(1, 100);
         if (SceneManager.GetActiveScene().name == "Farming")
         {
@@ -88,8 +87,7 @@ public class FieldTimer : MonoBehaviour
             img = target.GetComponent<Image>();
             txt = target.GetChild(0).GetComponent<Text>();
 
-            //num 연결 후 받아온 num으로 변경시키기
-            int num = 50;
+            
             if (p <= num)
             {
                 txt.text = "10";
@@ -101,21 +99,22 @@ public class FieldTimer : MonoBehaviour
                 img.sprite = rottenC; 
             }
         }
-        /*else//농사게임 화면이 아닐 때 작물이 다 자란 경우
+        else//농사게임 화면이 아닐 때 작물이 다 자란 경우
        {
-           if (p <= num)
+            Debug.Log(i + "배추가 농사게임 아닌곳에서 작물이 다자람");
+            if (p <= num)
                gd.fieldC[i] = 10;
            else
                gd.fieldC[i] = 11;
 
-       }*/
+       }
     }
 
     private void timesUpG(int i)
     {
         gTimer[i] = 0.0f;
-        //GameData gd = DataController.Instance.gameData;
-        //int num = gd.seedGArr[gd.seedGNum--];
+        GameData gd = DataController.Instance.gameData;
+        int num = gd.seedGArr[gd.seedGNum--];
         int p = Random.Range(1, 100);
         if (SceneManager.GetActiveScene().name == "Farming")
         {
@@ -124,8 +123,6 @@ public class FieldTimer : MonoBehaviour
             txt = target.GetChild(0).GetComponent<Text>();
             txt.text = "13";
 
-            //num gd.seedG어쩌고로 바꾸기
-            int num = 50;
             if (p <= num)
             { 
                 img.sprite = completeG;
@@ -138,14 +135,15 @@ public class FieldTimer : MonoBehaviour
                 txt.text = "14";
             }
         }
-        /*else//농사게임 화면이 아닐 때 작물이 다 자란 경우
+        else//농사게임 화면이 아닐 때 작물이 다 자란 경우
          {
-          if (p <= num)
-              gd.fieldC[i] = 10;
+            Debug.Log(i + "파가 농사게임 아닌곳에서 작물이 다자람");
+            if (p <= num)
+              gd.fieldG[i] = 13;
           else
-              gd.fieldC[i] = 11;
+              gd.fieldG[i] = 14;
 
-         }*/
+         }
     }
 
     // Update is called once per frame
