@@ -17,6 +17,7 @@ public class Part1_fieldscript : MonoBehaviour
     int MoveToMap = 0;
     public int clickCount = 0;
     public static int spaceCount = 0;
+    public int seedNum;
 
     GameObject npc;
     public GameManager manager;
@@ -107,8 +108,9 @@ public class Part1_fieldscript : MonoBehaviour
 
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-
-        if (GameManager.Part1 == 7)
+        GameData gd = DataController.Instance.gameData;
+        seedNum = gd.seedRNum + gd.seedGNum + gd.seedCNum;
+        if (seedNum == 0 && GameManager.Part1 == 7)
         {
             talk.SetMsg("힘드네.. 농사 정말 쉬운 일이 아니구나. 그래도 나름 꽤 수확한 것 같아.");
             for (int i = 0; i < script_list_1.Length; i++)
@@ -119,7 +121,7 @@ public class Part1_fieldscript : MonoBehaviour
             }
 
         }
-        else if (GameManager.Part1 == 12)
+        else if (seedNum == 0 && GameManager.Part1 == 12)
         {
             talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 ( 12-2)에서 계산한 원래 받아야 하는 값의 10% )원.");
             for (int i = 0; i < script_list_2.Length; i++)
@@ -130,7 +132,7 @@ public class Part1_fieldscript : MonoBehaviour
             }
 
         }
-        else if (GameManager.Part1 == 15)
+        else if (seedNum == 0 && GameManager.Part1 == 15)
         {
             talk.SetMsg("이만하면 됐어. 아직 해가 지진 않았으니까, 마을 밖으로 나가보자.");
             for (int i = 0; i < script_list_3.Length; i++)

@@ -22,7 +22,8 @@ public class Part1_grandmother : MonoBehaviour
 
 
     public Image img_player;
-    public Image img_npc;
+    public Image img_npc_grandmother;
+    public Image img_npc_grandchild;
 
     public GameObject backgroud_home;
     public GameObject backgroud_company;
@@ -118,12 +119,29 @@ public class Part1_grandmother : MonoBehaviour
 
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
+        string name = DataController.Instance.gameData.userName;
 
         if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
         {
-            talk.SetMsg("안녕하세요. 새로 이사 온 (이름)입니다!");
+            img_npc_grandmother.transform.gameObject.SetActive(true);
+            talk.SetMsg("안녕하세요. 새로 이사 온 "+name+"입니다!");
             for (int i = 0; i < script_list_1.Length; i++)
             {
+                if(i == 4)
+                {
+                    //사운드 문열림 추가
+                    img_npc_grandchild.transform.gameObject.SetActive(true);
+                    img_npc_grandmother.transform.gameObject.SetActive(false);
+                }
+                else if(i==5)
+                {
+
+                    img_npc_grandchild.transform.gameObject.SetActive(false);
+                    img_npc_grandmother.transform.gameObject.SetActive(true);
+                }
+                else if(i == 8)
+                    img_npc_grandmother.transform.gameObject.SetActive(true);
+
 
                 script_list = script_list_1.Clone() as string[];
 
