@@ -37,10 +37,12 @@ public class OpeningTalk : MonoBehaviour
         {
             backgroud_home.SetActive(false);
             backgroud_company.SetActive(true);
+            img_npc.transform.gameObject.SetActive(true);
         }
 
         if (clickCount == 7)
         {
+            img_npc.transform.gameObject.SetActive(false);
             backgroud_company.SetActive(false);
             backgroud_home.SetActive(true);
             
