@@ -119,10 +119,11 @@ public class Part1_farmer : MonoBehaviour
 
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
+        string name = DataController.Instance.gameData.userName;
 
         if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
         {
-            talk.SetMsg("안녕하세요. 저 마을 회관에서 뵌 (이름)입니다!");
+            talk.SetMsg("안녕하세요. 저 마을 회관에서 뵌 "+name+ "입니다!");
             for (int i = 0; i < script_list_1.Length; i++)
             {
 
@@ -132,7 +133,7 @@ public class Part1_farmer : MonoBehaviour
 
         }
         else if (GameManager.Part1 == 8) {
-            talk.SetMsg("어르신! 저번에 인사드린 (이름)입니다. 여쭤 볼 게 있어서 왔어요! ");
+            talk.SetMsg("어르신! 저번에 인사드린 "+name+"입니다. 여쭤 볼 게 있어서 왔어요! ");
             for (int i = 0; i < script_list_2.Length; i++)
             {
 
