@@ -36,6 +36,11 @@ public class GField : MonoBehaviour
     private GameObject parent;
     private Sprite sp;
 
+    public AudioSource sound_watering;
+    public AudioSource sound_homi;
+    public AudioSource sound_seed;
+    public AudioSource sound_harvesting;
+
 
 
     //같은 그룹의 밭들 이미지와 상태 변경하는 함수
@@ -47,6 +52,7 @@ public class GField : MonoBehaviour
             Image img = tmp.GetComponent<Image>();
             if (tmp.GetChild(0).GetComponent<Text>().text == "2")//이미 씨앗까지 다 준 상태였을 때
             {
+                sound_watering.Play();
                 img.sprite = sprout;
                 Debug.Log(i + " watered and start growing");
                 tmp.GetChild(0).GetComponent<Text>().text = "3";
@@ -66,6 +72,7 @@ public class GField : MonoBehaviour
             Image img = tmp.GetComponent<Image>();
             if (tmp.GetChild(0).GetComponent<Text>().text == "0")//기본 상태였을 때
             {
+                sound_homi.Play();
                 Debug.Log(i + " plowed");
                 Color color = img.color;
                 img.sprite = plowed;
@@ -88,6 +95,7 @@ public class GField : MonoBehaviour
         {
             if (img.sprite == complete)
             {
+                sound_harvesting.Play();
                 Debug.Log("수확성공");
                 result.text = (int.Parse(result.text) + 1).ToString();
                 DataController.Instance.gameData.greenOnionNum++;
@@ -100,6 +108,7 @@ public class GField : MonoBehaviour
         //파 씨앗 클릭 후 파밭을 클릭하는 경우
         else if (int.Parse(seedGNum.text) > 0 && cursorControl.text == "3" && obj.transform.parent.name == "field3" && sp == plowed)
         {
+            sound_seed.Play();
             Debug.Log(this.GetComponent<Button>() + "seed complete");
             img.sprite = seed;
             obj.transform.GetChild(0).GetComponent<Text>().text = "2";
