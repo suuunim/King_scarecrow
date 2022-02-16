@@ -87,6 +87,7 @@ public class OpeningTalk : MonoBehaviour
 
     void Start()
     {
+        t_player.gameObject.SetActive(true);
         sp = t_player.gameObject.GetComponent<SpriteRenderer>();
         player_basic = sp.sprite;
         a = DataController.Instance.gameData.userName;

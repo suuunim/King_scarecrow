@@ -132,8 +132,7 @@ public class Part1_field : MonoBehaviour
             talk.SetMsg("미친 놈.");
             for (int i = 0; i < script_list_1.Length; i++)
             {
-                if (i == 6)
-                    scarecrow.SetActive(true);
+                
                 script_list = script_list_1.Clone() as string[];
 
 
