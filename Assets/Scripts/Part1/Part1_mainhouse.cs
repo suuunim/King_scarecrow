@@ -105,6 +105,12 @@ public class Part1_mainhouse : MonoBehaviour
                 SceneManager.LoadScene("Load");
 
             }
+            else if (clickCount == 0)
+            {
+
+                audioSource.Stop();
+
+            }
         }
         else if (GameManager.Part1 == 18)
         {
@@ -118,19 +124,6 @@ public class Part1_mainhouse : MonoBehaviour
 
         }
 
-        //if (clickCount == 2)
-        //{
-        //    backgroud_home.SetActive(false);
-        //    backgroud_company.SetActive(true);
-        //}
-
-        //if (clickCount == 7)
-        //{
-        //    backgroud_company.SetActive(false);
-        //    backgroud_home.SetActive(true);
-
-
-        //}
 
 
         string str = script_list[clickCount];
@@ -219,7 +212,7 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 18)
         {
-           
+
             talk.SetMsg("꿈이 아니네. 나는 이 마을에 갇혔구나. 그래, 그냥 이장에게 협조하자.");
             for (int i = 0; i < script_list_6.Length; i++)
             {

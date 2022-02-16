@@ -83,11 +83,12 @@ public class Part1_villagehall : MonoBehaviour
                 audioSource.PlayOneShot(boots_gritty);
                 audioSource.PlayOneShot(footsteps_concrete);
                 audioSource.PlayOneShot(footstep_stones);
-                if (audioSource.time == 3)
-                {
-                    audioSource.Stop();
-                   
-                }
+               
+
+            }
+            else if (clickCount == 10)
+            {
+                audioSource.Stop();
 
             }
             else if (clickCount ==5)
