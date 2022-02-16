@@ -21,10 +21,10 @@ public class Part1_downstairs : MonoBehaviour
     public GameManager manager;
 
     int MoveToMap = 0;
-    public Image img_player;
-    public Image img_npc1;//아랫집 아줌마
-    public Image img_npc2;//아랫집 아저씨
-    public Image img_daughter;
+    public Transform t_player;
+    public Transform t_npc1;//아랫집 아줌마
+    public Transform t_npc2;//아랫집 아저씨
+    public Transform t_daughter;
 
     public GameObject backgroud_home;
     public GameObject backgroud_company;
@@ -42,6 +42,24 @@ public class Part1_downstairs : MonoBehaviour
             SceneManager.LoadScene("Map");
 
         }
+        if(GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
+        {
+            if(clickCount == 3)
+            {
+                t_daughter.gameObject.SetActive(true);
+                t_npc2.gameObject.SetActive(false);
+            }
+            else if (clickCount == 5)
+            {
+                t_daughter.transform.gameObject.SetActive(false);
+                t_npc1.transform.gameObject.SetActive(true);
+            }
+            else if (clickCount == 6)
+            {
+                t_npc1.transform.gameObject.SetActive(false);
+                t_npc2.transform.gameObject.SetActive(true);
+            }
+        }
 
         if (GameManager.Part1 == 5)
         {
@@ -51,7 +69,9 @@ public class Part1_downstairs : MonoBehaviour
                 SceneManager.LoadScene("Mmainhouse");
                 GameManager.Part1++;
             }
+            
         }
+        
         else if(GameManager.Part1 == 19)
         {
             if (clickCount == 13)
@@ -102,29 +122,17 @@ public class Part1_downstairs : MonoBehaviour
 
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        img_npc2.transform.gameObject.SetActive(true);
+        
 
         if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
         {
+            t_npc2.transform.gameObject.SetActive(true);
             talk.SetMsg("안녕하세요! 저 아까 마을 회관에서 인사 드린 "+ DataController.Instance.gameData.userName+ "입니다.");
             for (int i = 0; i < script_list_1.Length; i++)
             {
-                if(i == 3)
-                {
-                    img_daughter.transform.gameObject.SetActive(true);
-                    img_npc2.transform.gameObject.SetActive(false);
-                }
+                
 
-                else if(i==5)
-                {
-                    img_daughter.transform.gameObject.SetActive(false);
-                    img_npc1.transform.gameObject.SetActive(true);
-                }
-                else if(i==6)
-                {
-                    img_npc1.transform.gameObject.SetActive(false);
-                    img_npc2.transform.gameObject.SetActive(true);
-                }
+               
                 script_list = script_list_1.Clone() as string[];
                 
 
@@ -133,7 +141,7 @@ public class Part1_downstairs : MonoBehaviour
         }
         else if (GameManager.Part1 ==19)
         {
-            img_daughter.transform.gameObject.SetActive(true);
+            t_daughter.gameObject.SetActive(true);
             talk.SetMsg("저기.. 너희 가족이 내 농작물이랑 농사 도구들 다 가져갔지?");
             for (int i = 0; i < script_list_2.Length; i++)
             {

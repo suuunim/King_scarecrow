@@ -21,9 +21,9 @@ public class Part1_farmer : MonoBehaviour
     public GameManager manager;
 
     int MoveToMap = 0;
-    public Image img_player;
-    public Image img_npcW;
-    public Image img_npcM;
+    public Transform t_player;
+    public Transform t_npcW;
+    public Transform t_npcM;
 
     public GameObject backgroud_home;
     public GameObject backgroud_company;
@@ -68,6 +68,16 @@ public class Part1_farmer : MonoBehaviour
                 clickCount = 0;
                 SceneManager.LoadScene("Load");
 
+            }
+            else if (clickCount == 7 || clickCount == 10)
+            {
+                t_npcM.transform.gameObject.SetActive(true);
+                t_npcW.transform.gameObject.SetActive(false);
+            }
+            else if (clickCount == 8 || clickCount == 11)
+            {
+                t_npcM.transform.gameObject.SetActive(false);
+                t_npcW.transform.gameObject.SetActive(true);
             }
 
         }
@@ -124,7 +134,7 @@ public class Part1_farmer : MonoBehaviour
 
         if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
         {
-            img_npcM.transform.gameObject.SetActive(true);
+            t_npcM.transform.gameObject.SetActive(true);
             talk.SetMsg("안녕하세요. 저 마을 회관에서 뵌 "+name+ "입니다!");
             for (int i = 0; i < script_list_1.Length; i++)
             {
@@ -135,7 +145,7 @@ public class Part1_farmer : MonoBehaviour
 
         }
         else if (GameManager.Part1 == 8) {
-            img_npcM.transform.gameObject.SetActive(true);
+            t_npcM.transform.gameObject.SetActive(true);
             talk.SetMsg("어르신! 저번에 인사드린 "+name+"입니다. 여쭤 볼 게 있어서 왔어요! ");
             for (int i = 0; i < script_list_2.Length; i++)
             {
@@ -148,25 +158,14 @@ public class Part1_farmer : MonoBehaviour
         else if (GameManager.Part1 == 17)
         {
             talk.SetMsg("아.. 머리야. 여기가 어디지?");
-            //문열림 사운드 추가
-            img_npcW.transform.gameObject.SetActive(true);
+            t_npcW.transform.gameObject.SetActive(true);
             for (int i = 0; i < script_list_3.Length; i++)
             {
-                if (i == 7 || i ==10)
-                {
-                    img_npcM.transform.gameObject.SetActive(true);
-                    img_npcW.transform.gameObject.SetActive(false);
-                }
-                else if (i == 8 || i ==11)
-                {
-                    img_npcM.transform.gameObject.SetActive(false);
-                    img_npcW.transform.gameObject.SetActive(true);
-                }
+               
               
                 script_list = script_list_3.Clone() as string[];
 
             }
-            //뛰쳐나가는 소리 추가
 
         }
         else
