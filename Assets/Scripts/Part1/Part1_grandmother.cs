@@ -28,6 +28,9 @@ public class Part1_grandmother : MonoBehaviour
     public GameObject backgroud_home;
     public GameObject backgroud_company;
 
+    public AudioSource open;
+    public AudioSource close;
+
     string[] script_list_1 = new string[] { "… 청년은 몇 살이예요?", " 25살입니다!", "6살이나 많구만..", "아, 혹시 손주 분이랑 같이 지내시나요?", "할머니, 언제 들어오세요?", "어.. 손주가 많이 어리네요?", "청년.", "이곳은위험한곳이야.나쁜일에휘말리기전에얼른떠나는게좋을거야.나는이미다늙었고이곳을떠날수도없지만,자네는미래가창창하잖나.그러니내조언을새겨듣기를바라.그래야만청년이정상적으로살아갈수있어.", "꼭.꼭.떠나게나.", "뭐지... 방금?" };
     string[] script_list = new string[] { };
 
@@ -66,7 +69,7 @@ public class Part1_grandmother : MonoBehaviour
         {
             if (clickCount == 4)
             {
-                //사운드 문열림 추가
+                open.Play();
                 t_grandchild.transform.gameObject.SetActive(true);
                 t_grandmother.transform.gameObject.SetActive(false);
             }
@@ -76,8 +79,11 @@ public class Part1_grandmother : MonoBehaviour
                 t_grandchild.transform.gameObject.SetActive(false);
                 t_grandmother.transform.gameObject.SetActive(true);
             }
-            else if (clickCount == 8)
-                t_grandmother.transform.gameObject.SetActive(true);
+            else if (clickCount == 9)
+            {
+                close.Play();
+                t_grandmother.transform.gameObject.SetActive(false); 
+            }
         }
 
         if (GameManager.Part1 == 5)
@@ -133,7 +139,7 @@ public class Part1_grandmother : MonoBehaviour
 
     void Start()
     {
-
+        
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
         string name = DataController.Instance.gameData.userName;

@@ -33,6 +33,19 @@ public class Part1_field : MonoBehaviour
     string[] script_list_2 = new string[] {  " 다행이다.. 혹시 또 부탁할 거 있으면 말해! 내가 해줄게.", "응, 당연하지.. 이제 내가 너의 꿈을 이루는 방법을 알려줄게!", "나를 뽑아서 들고 뒷산으로 가. 그러면 이장이 너를 찾아올 거야.", "그게 다야? 너를 데리고 뒷산으로 가면… 이장이 나를 찾아온다고.", "왜? 이장도 너가 생명이라는 걸 알아?", "그리고.. 이장이 나를 찾아오는 게 왜 내 꿈을 이루는 방법이야?", "이장은 내가 생명이 있다는 걸 몰라. 그리고 우린 이장을.. 이용해야 해.", "나 네 말이 잘 이해가 안가. 앞은 그렇다 치고, 그 자를 어떻게 이용하는데?", "그게 왜 내가 행복해지기 위한 방법이냐니까?", "음, 말하자면 긴데.. 자세한 건 뒷산에 갔을 때 얘기해 줘도 돼?", "왜, 내 말에 믿음이 안가? 너가 차 키를 찾은 게 누구 덕분이더라?", "못 믿겠으면 도망쳐. 내가 찾아준 차 키를 이용해서. 친구까지 버리고 즐겁겠다.", "야, 뭘 또 말을 그렇게 해.. 내가 언제 도망간대? 난 널 믿어.", "뒷산으로 가자!" };
     string[] NoScript = new string[] {"친구야.. 한 번만 다시 생각해주면 안될까?","우리 마을에서 지내려면 나를 믿는 게 좋을 텐데?","나는 살아 있는 허수아비라 고통을 느낄 수 있어." };
 
+    public AudioSource throw1;//5.5초
+    public AudioSource throw2;
+    public AudioSource throw3;
+    public AudioSource digging;
+    public void soundPlay()
+    {
+        throw2.Play();
+        Invoke("soundPlay2", 2.5f);
+    }
+    public void soundPlay2()
+    {
+
+    }
     public void OnClickNextText()//다음으로 넘어가는 버튼 클릭 시 실행되는 함수
     {
         if (MoveToMap == 1)
@@ -57,6 +70,10 @@ public class Part1_field : MonoBehaviour
             else if (clickCount == 55)
             {
                 clickCount = 54;
+            }
+            else if(clickCount == 25)
+            {
+                digging.Play();
             }
 
 
@@ -129,6 +146,8 @@ public class Part1_field : MonoBehaviour
 
         if (GameManager.Part1 == 20)
         {
+            throw1.Play();
+            Invoke("soundPlay", 7.5f);
             talk.SetMsg("미친 놈.");
             for (int i = 0; i < script_list_1.Length; i++)
             {
