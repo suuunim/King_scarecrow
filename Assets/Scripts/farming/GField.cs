@@ -22,6 +22,7 @@ public class GField : MonoBehaviour
     //2 씨앗이 심어진 상태
     //3 ~ 초 흐름
 
+    public GameObject panel;
     public Text cursorControl;
     public Text result;
     public Sprite plowed;
@@ -41,7 +42,44 @@ public class GField : MonoBehaviour
     public AudioSource sound_seed;
     public AudioSource sound_harvesting;
 
+    GameData gd;
 
+    public Transform field1;
+    public Transform field2;
+    public Transform field3;
+
+    public bool checking()
+    {
+        int seedNum = gd.raddishNum + gd.cabbageNum + gd.greenOnionNum;
+        if (seedNum != 0) return false;
+        for (int i = 0; i < 6; i++)
+        {
+            Transform tmp = field1.GetChild(i);
+            string str = tmp.GetChild(0).GetComponent<Text>().text;
+            if (!(str == "0" || str == "1"))
+                return false;
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            Transform tmp = field2.GetChild(i);
+            string str = tmp.GetChild(0).GetComponent<Text>().text;
+            if (!(str == "0" || str == "1"))
+                return false;
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            Transform tmp = field3.GetChild(i);
+            string str = tmp.GetChild(0).GetComponent<Text>().text;
+            if (!(str == "0" || str == "1"))
+                return false;
+        }
+
+        return true;
+
+
+    }
 
     //같은 그룹의 밭들 이미지와 상태 변경하는 함수
     private void changeImageToWatered()//물줬을 때
@@ -86,6 +124,7 @@ public class GField : MonoBehaviour
     }
     public void clickfield()
     {
+        gd = DataController.Instance.gameData;
         Button obj = this.GetComponent<Button>();
         Image img = obj.image;
         sp = obj.image.sprite;
@@ -102,7 +141,13 @@ public class GField : MonoBehaviour
             }
             img.sprite = initial;
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
-            
+            if (checking())
+            {
+                panel.gameObject.SetActive(true);
+                GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().StartTalkSetting();
+            }
+
+
         }
 
         //파 씨앗 클릭 후 파밭을 클릭하는 경우
