@@ -43,7 +43,7 @@ public class OpeningTalk : MonoBehaviour
             t_npc.gameObject.SetActive(true);
         }
 
-        if (clickCount == 7)
+        if (clickCount == 5)
         {
             sp.sprite = player_basic;
             t_npc.gameObject.SetActive(false);
@@ -54,7 +54,7 @@ public class OpeningTalk : MonoBehaviour
         }
        
 
-        if (clickCount == 11) {
+        if (clickCount == 7) {
             clickCount = 0;
             GameManager.Part1 = 1;
             SceneManager.LoadScene("Map");

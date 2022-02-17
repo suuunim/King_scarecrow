@@ -80,7 +80,7 @@ public class Part1_headhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 1)
         {
-            if (clickCount == 6)
+            if (clickCount == 5)
             {
                 clickCount = 0;
                 GameManager.Part1 = 2;
