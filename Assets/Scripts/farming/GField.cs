@@ -144,7 +144,7 @@ public class GField : MonoBehaviour
             if (checking())
             {
                 panel.gameObject.SetActive(true);
-                GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().StartTalkSetting();
+                GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().AfterHarvest();
             }
 
 

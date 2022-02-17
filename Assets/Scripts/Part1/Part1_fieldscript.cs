@@ -26,6 +26,7 @@ public class Part1_fieldscript : MonoBehaviour
     public Image img_player;
     public Image img_npc;
     public Transform t_player;
+    public GameObject panel;
 
     public GameObject backgroud_home;
     public GameObject backgroud_company;
@@ -38,8 +39,6 @@ public class Part1_fieldscript : MonoBehaviour
     
     public void OnClickNextText()
     {
-
-
 
         if (MoveToMap == 1)
         {
@@ -104,15 +103,19 @@ public class Part1_fieldscript : MonoBehaviour
     }
 
 
-
-    public void StartTalkSetting()
+    public void StartAfterharvesting()
     {
-        gd = DataController.Instance.gameData;
+        
+
+        StartTalk();
+    }
+
+    public void AfterHarvest()
+    {
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        
-        seedNum = gd.seedRNum + gd.seedGNum + gd.seedCNum;
-        if (seedNum == 0 && GameManager.Part1 == 7)
+        img_player.gameObject.SetActive(true);
+        if (GameManager.Part1 == 7)
         {
             t_player.gameObject.SetActive(true);
             talk.SetMsg("힘드네.. 농사 정말 쉬운 일이 아니구나. 그래도 나름 꽤 수확한 것 같아.");
@@ -124,7 +127,7 @@ public class Part1_fieldscript : MonoBehaviour
             }
 
         }
-        else if (seedNum == 0 && GameManager.Part1 == 12)
+        else if (GameManager.Part1 == 12)
         {
             talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 ( 12-2)에서 계산한 원래 받아야 하는 값의 10% )원.");
             for (int i = 0; i < script_list_2.Length; i++)
@@ -135,7 +138,7 @@ public class Part1_fieldscript : MonoBehaviour
             }
 
         }
-        else if (seedNum == 0 && GameManager.Part1 == 15)
+        else if (GameManager.Part1 == 15)
         {
             talk.SetMsg("이만하면 됐어. 아직 해가 지진 않았으니까, 마을 밖으로 나가보자.");
             for (int i = 0; i < script_list_3.Length; i++)
@@ -146,8 +149,20 @@ public class Part1_fieldscript : MonoBehaviour
             }
 
         }
-        else
+
+        StartTalk();
+    }
+
+    public void Start()
+    {
+        gd = DataController.Instance.gameData;
+        
+        if(!(GameManager.Part1 == 7|| GameManager.Part1 == 15|| GameManager.Part1 == 12))
         {
+            panel.SetActive(true);
+            talkUI.SetActive(true);
+            talkUI.transform.GetChild(1).gameObject.SetActive(true);
+            img_player.gameObject.SetActive(true);
             for (int i = 0; i < script_list_1.Length; i++)
             {
 
@@ -159,13 +174,10 @@ public class Part1_fieldscript : MonoBehaviour
             talk.SetMsg("이곳에 볼 일은 없다.");
             MoveToMap = 1;
 
+            StartTalk();
         }
-
-        StartTalk();
-
-
-
-
+      
+       
     }
 
 }
