@@ -113,12 +113,7 @@ public class Part1_farmer : MonoBehaviour
 
 
         string str = script_list[clickCount];
-
-
-
-
         talk.SetMsg(str);
-
         clickCount++;
       
 
