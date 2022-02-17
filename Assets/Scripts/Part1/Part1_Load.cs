@@ -29,7 +29,7 @@ public class Part1_Load : MonoBehaviour
     public GameObject backgroud_company;
 
     string[] script_list_1 = new string[] { "이젠 휴대폰 배터리마저 없네. 이제 진짜 힘든데..", "어디 지나가는 사람 한 명만 나타났으면 좋겠다. 아무나라도 제발 좀..", "청년!", " 어… 와, 사람이다.", "여기서 뭐하고 있어? 상태가 많이 안 좋아보이는데, 내가 좀 도와줘?", "네.. 네!!!!! 감사합니다. 정말 감사해요..", "차에 좀 타도 될까요? 제가 지금 너무 힘들어서요.", "그럼! 얼른 타." };
-    string[] script_list_2 = new string[] { "이건 꿈일 거야. 집에 가서 잤다가 깨면, 나는… 다른 곳에 있을 거야. 확실해." };
+    string[] script_list_2 = new string[] { "이건 꿈일 거야. 집에 가서 잤다가 깨면, 나는… 다른 곳에 있을 거야. 제발." };
     string[] script_list = new string[] { };
 
     void Awake()
