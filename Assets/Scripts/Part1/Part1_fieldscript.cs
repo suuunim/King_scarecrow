@@ -9,7 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_fieldscript : MonoBehaviour
 {
-
+    GameData gd;
     public TalkEffect talk;
     public GameObject talkUI;
     public Button ButtonTalk;
@@ -25,6 +25,7 @@ public class Part1_fieldscript : MonoBehaviour
 
     public Image img_player;
     public Image img_npc;
+    public Transform t_player;
 
     public GameObject backgroud_home;
     public GameObject backgroud_company;
@@ -34,6 +35,7 @@ public class Part1_fieldscript : MonoBehaviour
     string[] script_list_3 = new string[] { "차 타고 멀리 나가 보면, 거래처를 찾을 수 있을 거야. 집으로 가자."};
     string[] script_list = new string[] { };
 
+    
     public void OnClickNextText()
     {
 
@@ -103,15 +105,16 @@ public class Part1_fieldscript : MonoBehaviour
 
 
 
-    void Start()
+    public void StartTalkSetting()
     {
-
+        gd = DataController.Instance.gameData;
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        GameData gd = DataController.Instance.gameData;
+        
         seedNum = gd.seedRNum + gd.seedGNum + gd.seedCNum;
         if (seedNum == 0 && GameManager.Part1 == 7)
         {
+            t_player.gameObject.SetActive(true);
             talk.SetMsg("힘드네.. 농사 정말 쉬운 일이 아니구나. 그래도 나름 꽤 수확한 것 같아.");
             for (int i = 0; i < script_list_1.Length; i++)
             {
