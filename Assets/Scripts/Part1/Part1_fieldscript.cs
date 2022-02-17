@@ -129,7 +129,9 @@ public class Part1_fieldscript : MonoBehaviour
         }
         else if (GameManager.Part1 == 12)
         {
-            talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 ( 12-2)에서 계산한 원래 받아야 하는 값의 10% )원.");
+            int num = gd.raddishNum * 602 + gd.greenOnionNum * 1205 + gd.cabbageNum * 907;
+            img_npc.gameObject.SetActive(true);
+            talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 "+(num*0.1)+"원.");
             for (int i = 0; i < script_list_2.Length; i++)
             {
 
