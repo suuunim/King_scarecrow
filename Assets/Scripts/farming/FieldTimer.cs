@@ -23,6 +23,7 @@ public class FieldTimer : MonoBehaviour
 
     Scene scene;
 
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);

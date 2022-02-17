@@ -1625,6 +1625,18 @@ MonoBehaviour:
   rotten_c: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   rotten_g: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  talk: {fileID: 2087736485}
+  talkUI: {fileID: 1727366591}
+  ButtonTalk: {fileID: 0}
+  ButtonTask: {fileID: 0}
+  clickCount: 0
+  seedNum: 0
+  manager: {fileID: 1317585223}
+  img_player: {fileID: 2138576559}
+  img_npc: {fileID: 648448054}
+  panel: {fileID: 0}
+  backgroud_home: {fileID: 0}
+  backgroud_company: {fileID: 0}
 --- !u!114 &377909489
 MonoBehaviour:
   m_ObjectHideFlags: 0
