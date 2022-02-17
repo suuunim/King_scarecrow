@@ -542,6 +542,8 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
+  seedCNum: {fileID: 412365268}
   seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
@@ -1124,6 +1126,8 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
+  seedCNum: {fileID: 412365268}
   seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
@@ -1918,7 +1922,7 @@ Transform:
   m_LocalScale: {x: 0.92703235, y: 0.9307895, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &455386448
 GameObject:
@@ -2332,6 +2336,8 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
+  seedCNum: {fileID: 412365268}
   seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
@@ -3009,7 +3015,9 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
   seedCNum: {fileID: 412365268}
+  seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
   sound_seed: {fileID: 400441905}
@@ -3792,6 +3800,8 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
+  seedCNum: {fileID: 412365268}
   seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
@@ -4108,7 +4118,9 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
   seedCNum: {fileID: 412365268}
+  seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
   sound_seed: {fileID: 400441905}
@@ -4992,7 +5004,6 @@ MonoBehaviour:
   manager: {fileID: 1317585223}
   img_player: {fileID: 2138576559}
   img_npc: {fileID: 648448054}
-  t_player: {fileID: 0}
   panel: {fileID: 1430217935}
   backgroud_home: {fileID: 0}
   backgroud_company: {fileID: 0}
@@ -5003,12 +5014,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249047026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.365416, y: -0.601906, z: -1232.4319}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.365416, y: -0.60190606, z: -1232.4319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250519963
 GameObject:
@@ -5139,7 +5150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1319791107
 GameObject:
@@ -5500,7 +5511,9 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
   seedCNum: {fileID: 412365268}
+  seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
   sound_seed: {fileID: 400441905}
@@ -6061,7 +6074,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592947613
 GameObject:
@@ -6202,7 +6215,9 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
   seedCNum: {fileID: 412365268}
+  seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
   sound_seed: {fileID: 400441905}
@@ -6440,6 +6455,8 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
+  seedCNum: {fileID: 412365268}
   seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
@@ -7219,7 +7236,9 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
   seedCNum: {fileID: 412365268}
+  seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
   sound_seed: {fileID: 400441905}
@@ -7457,6 +7476,8 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 75029d828b3298e4aad3857e76784fa7, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
+  seedCNum: {fileID: 412365268}
   seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
@@ -7769,7 +7790,9 @@ MonoBehaviour:
   fail: {fileID: 21300000, guid: 555b419c63a6a6549b89846d7b7cd4c6, type: 3}
   initial: {fileID: 21300000, guid: 0e02b453604d8024e91048f712e6196b, type: 3}
   sprout: {fileID: 21300000, guid: e26631c8d296b3043be2de0466b987e9, type: 3}
+  seedRNum: {fileID: 1241114521}
   seedCNum: {fileID: 412365268}
+  seedGNum: {fileID: 1962435587}
   sound_watering: {fileID: 612069594}
   sound_homi: {fileID: 1032572129}
   sound_seed: {fileID: 400441905}

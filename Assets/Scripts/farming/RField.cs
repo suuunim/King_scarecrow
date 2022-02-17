@@ -32,8 +32,10 @@ public class RField : MonoBehaviour
     public Sprite initial;
     public GameObject panel;
 
-    public Text seedRNum;
-    
+   public Text seedRNum;
+/*    public Text seedCNum;
+    public Text seedGNum;
+*/
     private GameObject parent;
     private Sprite sp;
 
@@ -51,12 +53,18 @@ public class RField : MonoBehaviour
 
     public bool checking()
     {
-        int seedNum = gd.raddishNum + gd.cabbageNum + gd.greenOnionNum;
+        
+        Debug.Log("checking");
+        int seedNum = gd.seedCNum + gd.seedGNum + gd.seedRNum;
+        Debug.Log(seedNum);
+        //int seedNum = int.Parse(seedGNum.ToString());
         if (seedNum != 0) return false;
         for (int i = 0; i < 6; i++)
         {
+            
             Transform tmp = field1.GetChild(i);
             string str = tmp.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(i +" "+ str);
             if (!(str == "0" || str == "1"))
                 return false;
         }
@@ -65,6 +73,7 @@ public class RField : MonoBehaviour
         {
             Transform tmp = field2.GetChild(i);
             string str = tmp.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(i + " " + str);
             if (!(str == "0" || str == "1"))
                 return false;
         }
@@ -73,6 +82,7 @@ public class RField : MonoBehaviour
         {
             Transform tmp = field3.GetChild(i);
             string str = tmp.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(i + " " + str);
             if (!(str == "0" || str == "1"))
                 return false;
         }
@@ -144,10 +154,10 @@ public class RField : MonoBehaviour
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
             if (checking())
             {
-                panel.gameObject.SetActive(true);
+                Debug.Log("checking true");
+                //panel.gameObject.SetActive(true);
                 GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().AfterHarvest(); 
             }
-            
         }
 
         //무씨앗 클릭 이후 무밭을 클릭하는 경우

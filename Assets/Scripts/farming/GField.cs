@@ -31,8 +31,10 @@ public class GField : MonoBehaviour
     public Sprite fail;
     public Sprite initial;
     public Sprite sprout;
-
+    public Text seedRNum;
+    public Text seedCNum;
     public Text seedGNum;
+
 
     private GameObject parent;
     private Sprite sp;
@@ -50,12 +52,14 @@ public class GField : MonoBehaviour
 
     public bool checking()
     {
-        int seedNum = gd.raddishNum + gd.cabbageNum + gd.greenOnionNum;
+        int seedNum = gd.seedCNum + gd.seedGNum + gd.seedRNum;
+        Debug.Log(seedNum);
         if (seedNum != 0) return false;
         for (int i = 0; i < 6; i++)
         {
             Transform tmp = field1.GetChild(i);
             string str = tmp.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(i + " " + str);
             if (!(str == "0" || str == "1"))
                 return false;
         }
@@ -64,6 +68,7 @@ public class GField : MonoBehaviour
         {
             Transform tmp = field2.GetChild(i);
             string str = tmp.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(i + " " + str);
             if (!(str == "0" || str == "1"))
                 return false;
         }
@@ -72,6 +77,7 @@ public class GField : MonoBehaviour
         {
             Transform tmp = field3.GetChild(i);
             string str = tmp.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(i + " " + str);
             if (!(str == "0" || str == "1"))
                 return false;
         }
@@ -143,7 +149,8 @@ public class GField : MonoBehaviour
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
             if (checking())
             {
-                panel.gameObject.SetActive(true);
+                //panel.gameObject.SetActive(true);
+                Debug.Log("checking true");
                 GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().AfterHarvest();
             }
 

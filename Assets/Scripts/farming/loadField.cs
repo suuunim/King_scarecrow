@@ -162,13 +162,23 @@ public class loadField : MonoBehaviour
         //이부분 제이슨에서 배열 불러오는걸로 바꾸기
         
         gd = DataController.Instance.gameData;
-        int[] tmpArr = gd.fieldR;
-        int[] tmpArr2 = gd.fieldC;
-        int[] tmpArr3 = gd.fieldG;
 
-        loadFieldR(tmpArr);
-        loadFieldC(tmpArr2);
-        loadFieldG(tmpArr3);
+        if((gd.seedCNum + gd.seedGNum + gd.seedRNum) == 0)
+        {
+            GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().AfterHarvest();
+        }
+
+        else
+        {
+            int[] tmpArr = gd.fieldR;
+            int[] tmpArr2 = gd.fieldC;
+            int[] tmpArr3 = gd.fieldG;
+
+            loadFieldR(tmpArr);
+            loadFieldC(tmpArr2);
+            loadFieldG(tmpArr3);
+        }
+        
 
     }
 
