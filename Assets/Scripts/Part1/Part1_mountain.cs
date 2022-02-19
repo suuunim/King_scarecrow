@@ -56,11 +56,11 @@ public class Part1_mountain : MonoBehaviour
         if (GameManager.Part1 == 23)
         {
 
-            if (clickCount == 23)
+            if (clickCount == 21)
             {
                 clickCount = 0;
                 GameManager.Part1 = 24;
-
+                SceneManager.LoadScene("Map");
 
             }
             else if (clickCount == 19)

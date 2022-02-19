@@ -45,49 +45,6 @@ public class Part1_fieldscript : MonoBehaviour
             SceneManager.LoadScene("Map");
 
         }
-
-        if (GameManager.Part1 == 7)
-        {
-            if (clickCount == 2){
-                clickCount = 0;
-                GameManager.Part1 = 8;
-                SceneManager.LoadScene("Map");
-            }
-
-
-        }
-        else if (GameManager.Part1 == 12)
-        {
-            if (clickCount == 5)
-            {
-                clickCount = 0;
-
-                SceneManager.LoadScene("Mmainhouse");
-            }
-        }
-        else if (GameManager.Part1 == 15)
-        {
-            if (clickCount == 1)
-            {
-                clickCount = 0;
-                GameManager.Part1 = 16;
-                SceneManager.LoadScene("Map");
-            }
-        }
-        
-
-
-        string str = script_list[clickCount];
-
-
-
-
-        talk.SetMsg(str);
-
-        clickCount++;
-
-
-
     }
 
 
@@ -103,56 +60,12 @@ public class Part1_fieldscript : MonoBehaviour
 
 
 
-    public void AfterHarvest()
-    {
-        talkUI.SetActive(true);
-        talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        img_player.gameObject.SetActive(true);
-        if (GameManager.Part1 == 7)
-        {
-            img_player.gameObject.SetActive(true);
-            talk.SetMsg("힘드네.. 농사 정말 쉬운 일이 아니구나. 그래도 나름 꽤 수확한 것 같아.");
-            for (int i = 0; i < script_list_1.Length; i++)
-            {
-
-                script_list = script_list_1.Clone() as string[];
-
-            }
-
-        }
-        else if (GameManager.Part1 == 12)
-        {
-            int num = gd.raddishNum * 602 + gd.greenOnionNum * 1205 + gd.cabbageNum * 907;
-            img_npc.gameObject.SetActive(true);
-            talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 "+(num*0.1)+"원.");
-            for (int i = 0; i < script_list_2.Length; i++)
-            {
-
-                script_list = script_list_2.Clone() as string[];
-
-            }
-
-        }
-        else if (GameManager.Part1 == 15)
-        {
-            talk.SetMsg("이만하면 됐어. 아직 해가 지진 않았으니까, 마을 밖으로 나가보자.");
-            for (int i = 0; i < script_list_3.Length; i++)
-            {
-
-                script_list = script_list_3.Clone() as string[];
-
-            }
-
-        }
-
-        StartTalk();
-    }
-
     public void Start()
     {
         gd = DataController.Instance.gameData;
-        
-        if(!(GameManager.Part1 == 7|| GameManager.Part1 == 15|| GameManager.Part1 == 12))
+
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+        if (!(GameManager.Part1 == 7|| GameManager.Part1 == 15|| GameManager.Part1 == 12))
         {
             panel.SetActive(true);
             talkUI.SetActive(true);
