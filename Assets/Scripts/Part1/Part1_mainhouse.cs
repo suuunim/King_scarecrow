@@ -114,9 +114,12 @@ public class Part1_mainhouse : MonoBehaviour
 
             }
             else if (clickCount == 4)
+            { 
                 t_npc.gameObject.SetActive(true);
+                Debug.Log(t_npc.gameObject.activeSelf);
+            }
 
-            else if(clickCount == 16)
+            else if (clickCount == 16)
                 t_npc.gameObject.SetActive(false);
 
 
