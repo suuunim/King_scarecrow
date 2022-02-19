@@ -129,7 +129,7 @@ public class Part1_field2 : MonoBehaviour
         {
             int num = gd.raddishNum * 602 + gd.greenOnionNum * 1205 + gd.cabbageNum * 907;
             img_npc.gameObject.SetActive(true);
-            talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 " + (num * 0.1) + "원.");
+            talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 " + (int)(num * 0.1) + "원.");
             for (int i = 0; i < script_list_2.Length; i++)
             {
 

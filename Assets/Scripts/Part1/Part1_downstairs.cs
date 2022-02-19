@@ -81,6 +81,8 @@ public class Part1_downstairs : MonoBehaviour
                 SceneManager.LoadScene("Map");
                 GameManager.Part1 = 20;
             }
+            else if (clickCount == 11)
+                t_daughter.gameObject.SetActive(false);
         }
         else
         {

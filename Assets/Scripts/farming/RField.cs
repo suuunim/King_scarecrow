@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 //전체밭(해당 농작물 밭 6칸 중 아무곳이나) 클릭 
 //관련 스크립트 (raycast target 문제로 작은 밭 한칸 한칸에 적용)
@@ -154,9 +155,9 @@ public class RField : MonoBehaviour
             obj.transform.GetChild(0).GetComponent<Text>().text = "0";
             if (checking())
             {
-                Debug.Log("checking true");
-                //panel.gameObject.SetActive(true);
-                GameObject.Find("TalkManager").GetComponent<Part1_fieldscript>().AfterHarvest(); 
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
+                SceneManager.LoadScene("Farming2");
+
             }
         }
 

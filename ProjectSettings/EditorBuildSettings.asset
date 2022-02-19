@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/FirstScene.unity
+    guid: 52b605af3b6e62a40b7d2ca8eb2c9852
+  - enabled: 1
     path: Assets/Scenes/Map/HideAndSeek/HideansSeek.unity
     guid: 6b78cf69d47e6ac48889edb27b48811b
   - enabled: 1
@@ -26,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map/HideAndSeek/field.unity
     guid: bf3cbf96ee45e134296613d983e987ff
-  - enabled: 1
-    path: Assets/Scenes/FirstScene.unity
-    guid: 52b605af3b6e62a40b7d2ca8eb2c9852
   - enabled: 1
     path: Assets/Scenes/Map/HideAndSeek/headhouse.unity
     guid: 9bca68febb07a6c498ca0c9f432e07a4
@@ -89,4 +89,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Farming.unity
     guid: e5087fe3e66255442992e10c46fe80a1
+  - enabled: 1
+    path: Assets/Scenes/Farming2.unity
+    guid: e86d13ac3a854d443b63e3f1b3f3841b
   m_configObjects: {}
