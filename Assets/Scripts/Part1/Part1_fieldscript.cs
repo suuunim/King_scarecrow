@@ -9,6 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_fieldscript : MonoBehaviour
 {
+    public Text nametagText;
     GameData gd;
     public TalkEffect talk;
     public GameObject talkUI;
@@ -22,7 +23,7 @@ public class Part1_fieldscript : MonoBehaviour
     GameObject npc;
     public GameManager manager;
 
-
+    string a;
     public Image img_player;
     public Image img_npc;
     public GameObject panel;
@@ -67,6 +68,7 @@ public class Part1_fieldscript : MonoBehaviour
         Cursor.SetCursor(null, Vector2.zero, CursorMode.ForceSoftware);
         if (!(GameManager.Part1 == 7|| GameManager.Part1 == 15|| GameManager.Part1 == 12))
         {
+            nametagText.text = "???";
             panel.SetActive(true);
             talkUI.SetActive(true);
             talkUI.transform.GetChild(1).gameObject.SetActive(true);

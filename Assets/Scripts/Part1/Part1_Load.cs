@@ -9,6 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_Load : MonoBehaviour
 {
+    public Text nametagText;
     public TalkEffect talk;
     public GameObject talkUI;
     public Button ButtonTalk;
@@ -23,8 +24,8 @@ public class Part1_Load : MonoBehaviour
     public AudioSource audioSource;
 
     public GameObject farmer_F;
-
-
+    string a;
+    public GameObject mainface;
     public GameObject backgroud_home;
     public GameObject backgroud_company;
 
@@ -63,13 +64,33 @@ public class Part1_Load : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 17;
+               
                 SceneManager.LoadScene("Mfarmer");
             }
             else if (clickCount == 2)
             {
+                nametagText.text = "???";
                 farmer_F.SetActive(true);
                 playSound("engine");
             }
+            else if (clickCount == 3)
+            {
+                nametagText.text = a;
+                mainface.SetActive(false);
+            }
+            else if (clickCount == 4)
+            {
+                nametagText.text = "???";
+            }
+            else if (clickCount == 5)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 7)
+            {
+                nametagText.text = "???";
+            }
+
 
 
 
@@ -81,6 +102,7 @@ public class Part1_Load : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 18;
+               
                 SceneManager.LoadScene("Mmainhouse");
             }
 
@@ -132,12 +154,14 @@ public class Part1_Load : MonoBehaviour
 
     void Start()
     {
-
+        a= DataController.Instance.gameData.userName;
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 
         if (GameManager.Part1 == 16)
         {
+            nametagText.text = a;
+            mainface.SetActive(true);
             talk.SetMsg("지금이 몇 시지. 도대체 얼마나 걸은 걸까. 목도 마르고, 다리도 아프고..");
             for (int i = 0; i < script_list_1.Length; i++)
             {
@@ -149,6 +173,8 @@ public class Part1_Load : MonoBehaviour
         }
         else if (GameManager.Part1 == 17)
         {
+            nametagText.text = a;
+            mainface.SetActive(true);
             farmer_F.SetActive(false);
             talk.SetMsg("허… 정신 나간 마을 주민이 한 명 더 있었어! 돌고 돌아 또 이 마을이라니.");
             for (int i = 0; i < script_list_2.Length; i++)
@@ -160,6 +186,7 @@ public class Part1_Load : MonoBehaviour
         }
         else
         {
+            nametagText.text = a;
             for (int i = 0; i < script_list_1.Length; i++)
             {
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class bird : MonoBehaviour
 {
     int check = 0;
@@ -17,7 +18,8 @@ public class bird : MonoBehaviour
     public GameObject targetPosition5;
     public GameObject targetPosition6;
     public GameObject targetPosition7;
-
+    public GameObject gameoverimg;
+    int endcheck = 0;
     public AudioClip hitSound;
     public AudioClip killSound;
     public AudioSource audioSource;
@@ -69,10 +71,16 @@ public class bird : MonoBehaviour
 
     private void Start()
     {
-        BirdSet();
-        StartCoroutine("BirdMove");
-        InvokeRepeating("Hit", 5, 1);//5초후에 한번 실행 그 뒤로는 1초마다 반복 Hit 새가 허수아비 공격하여 체력바 줄어드는 부분
+        if (GameManager.explaincheck == 1&&HealthBar.value>0)
+        {
+            BirdSet();
+            StartCoroutine("BirdMove");
+            InvokeRepeating("Hit", 5, 1);//5초후에 한번 실행 그 뒤로는 1초마다 반복 Hit 새가 허수아비 공격하여 체력바 줄어드는 부분
 
+
+        }
+
+      
     }
 
 
@@ -209,22 +217,33 @@ public class bird : MonoBehaviour
 
     void Update() {
 
-        if (GameManager.score == 1) {
+        if (GameManager.score == 1)
+        {
             GameManager.Part1 = 22;
             Invoke("delayLoad", 2);
         }
-        else if (GameManager.StoneN == 0) {
-
-            SceneManager.LoadScene("Slingshot");
-
-
-        }
-        else if (HealthBar.value == 0)
+        else if (GameManager.StoneN == 0)
         {
-            SceneManager.LoadScene("Slingshot");
+            StopCoroutine("BirdMove");
+            CancelInvoke("Hit");
+
+            gameoverimg.SetActive(true);
+            GameManager.overcheck = 1;
+
 
         }
-    
+        else if (HealthBar.value <= 0)
+        {
+            StopCoroutine("BirdMove");
+            CancelInvoke("Hit");
+            gameoverimg.SetActive(true);
+            GameManager.overcheck = 1;
+            
+        }
+
     }
 
+    
+
+    
 }

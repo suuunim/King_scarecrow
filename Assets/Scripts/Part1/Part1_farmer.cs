@@ -16,17 +16,16 @@ public class Part1_farmer : MonoBehaviour
 
     public int clickCount = 0;
     public static int spaceCount = 0;
-
+    public Text nametagText;
     GameObject npc;
     public GameManager manager;
-
+    string a;
     int MoveToMap = 0;
     public Transform t_player;
     public Transform t_npcW;
     public Transform t_npcM;
-
-    public GameObject backgroud_home;
-    public GameObject backgroud_company;
+    public GameObject mainface;
+    
     public AudioSource open;
     public AudioSource running;
     public AudioSource running2;
@@ -41,7 +40,13 @@ public class Part1_farmer : MonoBehaviour
         running2.Play();
     }
 
-
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnClickNextText();
+        }
+    }
     public void OnClickNextText()
     {
 
@@ -59,6 +64,8 @@ public class Part1_farmer : MonoBehaviour
                 clickCount = 0;
                 SceneManager.LoadScene("Mmainhouse");
                 GameManager.Part1++;
+
+                
             }
         }
         else if (GameManager.Part1 == 8)
@@ -67,7 +74,24 @@ public class Part1_farmer : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 9;
+                DataController.Instance.gameData.part1 = GameManager.Part1;
                 SceneManager.LoadScene("Map");
+            }
+            else if (clickCount == 2)
+            {
+                nametagText.text = "농사꾼 할아버지";
+            }
+            else if (clickCount == 3)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 4)
+            {
+                nametagText.text = "농사꾼 할아버지";
+            }
+            else if (clickCount == 5)
+            {
+                nametagText.text = a;
             }
         }
         else if (GameManager.Part1 == 17)
@@ -80,18 +104,21 @@ public class Part1_farmer : MonoBehaviour
             }
             else if(clickCount == 2)
             {
+                nametagText.text = "???";
                 open.Play();
                 t_npcW.transform.gameObject.SetActive(true);
             }
             //농사꾼 할머니 사라지고 농사꾼 할아버지 보임
             else if (clickCount == 8 || clickCount == 11)
             {
+                nametagText.text = "농사꾼 할아버지";
                 t_npcM.transform.gameObject.SetActive(true);
                 t_npcW.transform.gameObject.SetActive(false);
             }
             //농사꾼 할아버지 사라지고 농사꾼 할머니 보임
             else if (clickCount == 9 || clickCount == 12) 
             {
+                nametagText.text = "농사꾼 할머니";
                 t_npcM.transform.gameObject.SetActive(false);
                 t_npcW.transform.gameObject.SetActive(true);
                 
@@ -102,14 +129,48 @@ public class Part1_farmer : MonoBehaviour
                 running.Play();
                 Invoke("soundPlay", 1.1f);
             }
+            else if (clickCount == 3)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 4)
+            {
+                nametagText.text = "???";
+            }
+            else if (clickCount == 5)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 6)
+            {
+                nametagText.text = "???";
+            }
         }
         else
         {
+            GameManager.farmer_check = 1;
             if (clickCount == 6)
             {
                 clickCount = 0;
                 SceneManager.LoadScene("Map");
                 GameManager.Part1++;
+                
+            }
+            else if (clickCount == 1)
+            {
+                nametagText.text = "농사꾼 할아버지";
+            }
+            else if (clickCount == 2)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 4)
+            {
+                nametagText.text = "농사꾼 할아버지";
+            }
+            else if (clickCount == 5)
+            {
+                nametagText.text = a;
             }
         }
 
@@ -147,12 +208,14 @@ public class Part1_farmer : MonoBehaviour
 
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        string name = DataController.Instance.gameData.userName;
+        a = DataController.Instance.gameData.userName;
 
-        if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
+        if ((GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)&& GameManager.farmer_check == 0)
         {
+            nametagText.text = a;
+            GameManager.farmer_check = 1;
             t_npcM.transform.gameObject.SetActive(true);
-            talk.SetMsg("안녕하세요. 저 마을 회관에서 뵌 "+name+ "입니다!");
+            talk.SetMsg("안녕하세요. 저 마을 회관에서 뵌 "+a+ "입니다!");
             for (int i = 0; i < script_list_1.Length; i++)
             {
 
@@ -163,6 +226,7 @@ public class Part1_farmer : MonoBehaviour
         }
         else if (GameManager.Part1 == 8) {
             t_npcM.transform.gameObject.SetActive(true);
+            nametagText.text = a;
             talk.SetMsg("어르신! 저번에 인사드린 "+name+"입니다. 여쭤 볼 게 있어서 왔어요! ");
             for (int i = 0; i < script_list_2.Length; i++)
             {
@@ -174,6 +238,8 @@ public class Part1_farmer : MonoBehaviour
         }
         else if (GameManager.Part1 == 17)
         {
+            nametagText.text = a;
+            mainface.SetActive(true);
             talk.SetMsg("아.. 머리야. 여기가 어디지?");
             for (int i = 0; i < script_list_3.Length; i++)
             {
@@ -193,6 +259,7 @@ public class Part1_farmer : MonoBehaviour
 
 
             }
+            nametagText.text = a;
             talk.SetMsg("이곳에 볼 일은 없다.");
             MoveToMap = 1;
 

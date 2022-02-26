@@ -9,6 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_grandmother : MonoBehaviour
 {
+    public Text nametagText;
     public TalkEffect talk;
     public GameObject talkUI;
     public Button ButtonTalk;
@@ -19,12 +20,12 @@ public class Part1_grandmother : MonoBehaviour
 
     GameObject npc;
     public GameManager manager;
-
+    string a;
 
     public Transform t_player;
     public Transform t_grandmother;
     public Transform t_grandchild;
-
+    public GameObject mainface;
     public GameObject backgroud_home;
     public GameObject backgroud_company;
 
@@ -46,66 +47,69 @@ public class Part1_grandmother : MonoBehaviour
         }
 
 
-        if (clickCount == 10)
-            {
+      
 
-                
-            if (GameManager.Part1 == 5)
-            {
-                clickCount = 0;
-                SceneManager.LoadScene("Mmainhouse");
-                GameManager.Part1++;
-            }
-            else
-            {
-                clickCount = 0;
-                SceneManager.LoadScene("Map");
-                GameManager.Part1++;
-            }
-
-        }
-
-        if(GameManager.Part1 == 3|| GameManager.Part1 == 4|| GameManager.Part1 == 5)
+        if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
         {
+            GameManager.grandmother_check = 1;
             if (clickCount == 4)
             {
+                nametagText.text = "아이";
                 open.Play();
                 t_grandchild.transform.gameObject.SetActive(true);
                 t_grandmother.transform.gameObject.SetActive(false);
             }
             else if (clickCount == 5)
             {
-
+                nametagText.text = "할머니";
                 t_grandchild.transform.gameObject.SetActive(false);
                 t_grandmother.transform.gameObject.SetActive(true);
             }
             else if (clickCount == 9)
             {
+                nametagText.text = a;
+                mainface.SetActive(true);
                 close.Play();
-                t_grandmother.transform.gameObject.SetActive(false); 
+                t_grandmother.transform.gameObject.SetActive(false);
             }
-        }
-
-        if (GameManager.Part1 == 5)
-        {
-            if (clickCount == 10)
+            else if (clickCount == 0)
             {
-                clickCount = 0;
-                SceneManager.LoadScene("Mmainhouse");
-                GameManager.Part1++;
+                nametagText.text = "할머니";
             }
-
-
-        }
-        else
-        {
-            if (clickCount == 10)
+            else if (clickCount == 1)
             {
-                clickCount = 0;
-                SceneManager.LoadScene("Map");
-                GameManager.Part1++;
+                nametagText.text = a;
             }
+            else if (clickCount == 2)
+            {
+                nametagText.text = "할머니";
+            }
+            else if (clickCount ==3)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 10)
+            {
+                if (GameManager.Part1 == 5)
+                {
+                    clickCount = 0;
+                    SceneManager.LoadScene("Mmainhouse");
+                    GameManager.Part1++;
+                    
+
+                }
+                else
+                {
+                    clickCount = 0;
+                    SceneManager.LoadScene("Map");
+                    GameManager.Part1++;
+                    
+                }
+            }
+            
         }
+
+     
       
 
 
@@ -139,15 +143,16 @@ public class Part1_grandmother : MonoBehaviour
 
     void Start()
     {
-        
+        clickCount = 0;
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
-        string name = DataController.Instance.gameData.userName;
+        a = DataController.Instance.gameData.userName;
 
-        if (GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)
+        if ((GameManager.Part1 == 3 || GameManager.Part1 == 4 || GameManager.Part1 == 5)&&GameManager.grandmother_check==0)
         {
+            nametagText.text = a;
             t_grandmother.transform.gameObject.SetActive(true);
-            talk.SetMsg("안녕하세요. 새로 이사 온 "+name+"입니다!");
+            talk.SetMsg("안녕하세요. 새로 이사 온 "+a+"입니다!");
             for (int i = 0; i < script_list_1.Length; i++)
             {
                 
@@ -167,7 +172,7 @@ public class Part1_grandmother : MonoBehaviour
 
 
             }
-
+            nametagText.text = a;
             talk.SetMsg("이곳에 볼 일은 없다.");
             MoveToMap = 1;
 

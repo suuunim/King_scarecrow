@@ -52,6 +52,7 @@ public class Part1_field2 : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 8;
+                
                 SceneManager.LoadScene("Map");
             }
 
@@ -76,6 +77,7 @@ public class Part1_field2 : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 16;
+                
                 SceneManager.LoadScene("Map");
             }
         }

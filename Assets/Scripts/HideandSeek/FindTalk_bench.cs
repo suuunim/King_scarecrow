@@ -7,7 +7,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class FindTalk_bench : MonoBehaviour
 {
-    public GameObject Retry_btn;
+   
+    public GameObject Gameoverimg;
+    public GameObject headimg;
+   
     public TalkEffect talk;
     public GameObject talkUI;
     public void OnClickNextText()
@@ -15,6 +18,7 @@ public class FindTalk_bench : MonoBehaviour
         SceneManager.LoadScene("HideansSeek");
 
     }
+  
     public void ClickGameOver()
     {
 
@@ -31,7 +35,9 @@ public class FindTalk_bench : MonoBehaviour
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
         if (GameManager.FindRoot == 8 || GameManager.FindRoot == 19 || GameManager.FindRoot == 22 || GameManager.FindRoot == 38 || GameManager.FindRoot == 40)
         {
-            talk.SetMsg("아쉽게 놓쳤다. 다시 찾아보자.");
+            
+            headimg.SetActive(true);
+            talk.SetMsg("찾  았  다");
             GameManager.FindRoot++;
             UIManager.instance.Head -= 7;
         }
@@ -43,14 +49,15 @@ public class FindTalk_bench : MonoBehaviour
 
                 if (UIManager.instance.Main <= 10)
                 {
-
-                    Retry_btn.SetActive(true);
+                    Gameoverimg.SetActive(true);
+                    
                     talk.SetMsg("정신이 흐려진다..");
 
 
                 }
                 else
                 {
+                    talk.SetMsg("이 곳에는 오지 않은 것 같다.");
                     UIManager.instance.Main -= 10;
                 }
 
@@ -69,7 +76,7 @@ public class FindTalk_bench : MonoBehaviour
 
     void Start()
     {
-        Retry_btn.SetActive(false);
+       
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 

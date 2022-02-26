@@ -9,7 +9,11 @@ public class GameData
     public bool isFirstTime = true;
     public string userName = "";
     public int soundV = 0;
-    
+
+    //맵 단위로 자동 저장
+    public int part1=0;
+
+
     //획득한 작물 갯수
     public int raddishNum = 0;
     public int cabbageNum = 0;

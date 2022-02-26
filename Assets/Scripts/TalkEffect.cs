@@ -14,6 +14,7 @@ public class TalkEffect : MonoBehaviour
 
     public void SetMsg(string msg)
     {
+        
         targetMsg = msg;
         EffectStart();
     }

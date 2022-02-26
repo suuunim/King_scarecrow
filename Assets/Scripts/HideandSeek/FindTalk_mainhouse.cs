@@ -7,12 +7,31 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class FindTalk_mainhouse : MonoBehaviour
 {
-    public GameObject Retry_btn;
+    public GameObject Gameoverimg;
+    public GameObject headimg;
+    public Image fadeimg;
     public TalkEffect talk;
     public GameObject talkUI;
     public void OnClickNextText()
     {
         SceneManager.LoadScene("HideansSeek");
+
+    }
+    IEnumerator FadeAway()
+    {
+
+        fadeimg.enabled = true;
+        //fadeimg.gameObject.SetActive(true);
+        Color color = fadeimg.color;
+        for (float i = 1.0f; i >= 0.0f; i -= 0.1f)
+        {
+            yield return new WaitForSeconds(0.1f);
+            color.a = i;                   //i가 내려가면서 선언한 컬러의 알파 값에 참조
+
+            fadeimg.color = color;       //i로 인해 내려간 알파 값을 다시 오브젝트 이미지에 참조
+
+        }
+        fadeimg.enabled = false;
 
     }
     public void ClickGameOver()
@@ -31,7 +50,9 @@ public class FindTalk_mainhouse : MonoBehaviour
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
         if (GameManager.FindRoot == 2 || GameManager.FindRoot == 10 || GameManager.FindRoot == 26 || GameManager.FindRoot == 35 || GameManager.FindRoot == 49)
         {
-            talk.SetMsg("아쉽게 놓쳤다. 다시 찾아보자.");
+            StartCoroutine("FadeAway");
+            headimg.SetActive(true);
+            talk.SetMsg("찾  았  다");
             GameManager.FindRoot++;
             UIManager.instance.Head -= 7;
         }
@@ -43,14 +64,16 @@ public class FindTalk_mainhouse : MonoBehaviour
 
                 if (UIManager.instance.Main <= 10)
                 {
+                    Gameoverimg.SetActive(true);
 
-                    Retry_btn.SetActive(true);
+                   
                     talk.SetMsg("정신이 흐려진다..");
 
 
                 }
                 else
                 {
+                    talk.SetMsg("이 곳에는 오지 않은 것 같다.");
                     UIManager.instance.Main -= 10;
                 }
 
@@ -69,7 +92,7 @@ public class FindTalk_mainhouse : MonoBehaviour
 
     void Start()
     {
-        Retry_btn.SetActive(false);
+       
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 

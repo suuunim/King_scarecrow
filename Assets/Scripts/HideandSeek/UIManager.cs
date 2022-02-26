@@ -78,8 +78,8 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public int Main = 100;
-    public int Head = 70;
+    public int Main = 5;//100;
+    public int Head = 95;//70;
     public float LimitTime;
 
 }
