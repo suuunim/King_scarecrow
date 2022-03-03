@@ -11,13 +11,17 @@ public class GameManager : MonoBehaviour
     public string[] npc = {"허수아비", "아주머니"};
 
     public static int FindRoot;
-
+    public static int explaincheck=0;
+    public static int overcheck=0;
     public static GameManager instance; //어디서나 접근할 수 있도록 static(정적)으로 자기 자신을 저장할 변수를 만듭니다.
     public Text scoreText; //점수를 표시하는 Text객체를 에디터에서 받아옵니다.
     public Text StoneText;
     public static int StoneN = 50;
     public static int score = 0; //점수를 관리합니다.
     public static int Part1=0;
+    public static int grandmother_check = 0;
+    public static int down_check = 0;
+    public static int farmer_check = 0;
     public Slider Head;
     public Slider Main;
     void Awake()
@@ -45,11 +49,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()
     {
-
+       
     }
 }

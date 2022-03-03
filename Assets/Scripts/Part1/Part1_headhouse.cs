@@ -11,25 +11,24 @@ public class Part1_headhouse : MonoBehaviour
 {
     public TalkEffect talk;
     public GameObject talkUI;
-    public Button ButtonTalk;
-    public Button ButtonTask;
-    public Button Yes;
-    public Button No;
+   
+    
     public Image fadeimg;
     public int clickCount = 0;
     public static int spaceCount = 0;
-
+    public Text nametagText;
     GameObject npc;
     public GameManager manager;
-
+    public Button Yes;
+    public Button No;
     int checkpoint = 0;
     int MoveToMap = 0;
     public GameObject headimg;
-    
-    
+    public GameObject mainface;
+
     public GameObject backgroud_home;
     public GameObject backgroud_company;
-
+    string a;
     string[] script_list_1;
     string[] script_list_2 = new string[] { " …", "어디 가셨나? 농작물이 상하기 전에 얼른 거래처를 구해야 하는데..", " 마을 회관에 다른 분들과 함께 계시려나? 그 쪽으로 가보자!" };
     string[] script_list_3 = new string[] { "내가 아는 곳이 하나 있긴 하지만, 거기가 어디인지는 자네에게 말해줄 수 없어.", "그 사장이 하도 깐깐해서 나랑만 거래를 하거든.", "아.. 그럼 그 분과 거래할 방법은 없는 건가요?", "딱 하나 있지! 나에게 전권을 맡기는 거야.", "자네가 수확한 농작물을 내게 주면, 내가 팔아 돈을 벌고, 자네에게 나눠 주고.", "어때. 할 만하지?", "혹시 저에게 어느 정도의 수익이 돌아오는지 알 수 있을까요?", "하하! 당찬 청년이네? 내가 설마 다 떼먹겠나.", "농사꾼 할아버지도 나를 통해 거래하고 있어. 돌려줄 만큼 돌려주니 걱정 말게.", "당장 농작물 파는 일이 더 급할 텐데, 빠르게 결정하는 게 좋지 않아?", " (어떡하지.. 급한 상황인 건 맞지만, 과연 나에게 정당한 비율의 돈을 돌려줄까?)", " (어떡하지.. 급한 상황인 건 맞지만, 과연 나에게 정당한 비율의 돈을 돌려줄까?)" };
@@ -58,14 +57,32 @@ public class Part1_headhouse : MonoBehaviour
 
             if (clickCount == 10)
             {
+                nametagText.text = a;
                 talkUI.transform.GetChild(1).gameObject.SetActive(false);
                 Yes.gameObject.SetActive(true);
                 No.gameObject.SetActive(true);
+                mainface.SetActive(true);
 
             }
             else if (clickCount == 11)
             {
                 clickCount = 10;
+            }
+            else if (clickCount == 3)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 4)
+            {
+                nametagText.text = "이장";
+
+            }
+            else if (clickCount ==6)
+            {
+                nametagText.text = a;
+            }
+            else if (clickCount == 7) {
+                nametagText.text = "이장";
             }
             
         }
@@ -75,6 +92,7 @@ public class Part1_headhouse : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 14;
+                
                 SceneManager.LoadScene("Map");
             }
         }
@@ -84,7 +102,18 @@ public class Part1_headhouse : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 2;
+               
                 SceneManager.LoadScene("Map");
+            }
+            else if (clickCount == 0)
+            {
+                nametagText.text = a;
+
+            }
+            else if (clickCount == 2)
+            {
+                nametagText.text = "이장";
+
             }
         }
         else if (GameManager.Part1 == 9)
@@ -94,18 +123,26 @@ public class Part1_headhouse : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 10;
+                
                 SceneManager.LoadScene("Map");
 
             }
         }
 
-        if (checkpoint == 1 && clickCount==2 && GameManager.Part1==11)
+        if(checkpoint==1 && GameManager.Part1 == 11)
         {
-            SceneManager.LoadScene("Map");
-            GameManager.Part1 = 12;
-            clickCount = 0;
+            nametagText.text = "이장";
+            if (clickCount == 2)
+            {
+                SceneManager.LoadScene("Map");
+                GameManager.Part1 = 12;
+                DataController.Instance.gameData.part1 = GameManager.Part1;
+                clickCount = 0;
 
+            }
         }
+
+        
 
         string str = script_list[clickCount];
 
@@ -123,7 +160,7 @@ public class Part1_headhouse : MonoBehaviour
     public void NoText()
     {
 
-
+        nametagText.text = "이장";
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
         talk.SetMsg(NoScript[clickCount%3]);
 
@@ -136,6 +173,8 @@ public class Part1_headhouse : MonoBehaviour
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
         Yes.gameObject.SetActive(false);
         No.gameObject.SetActive(false);
+        mainface.SetActive(false);
+        nametagText.text = a;
         talk.SetMsg("네! 그렇게 하겠습니다.");
         for (int i = 0; i < YesScript.Length; i++)
         {
@@ -163,7 +202,7 @@ public class Part1_headhouse : MonoBehaviour
 
     void Start()
     {
-        string a = DataController.Instance.gameData.userName;
+        a = DataController.Instance.gameData.userName;
         script_list_1 = new string[] { "네! "+a+"라고 합니다. 어릴 적부터 농사를 지으며 사는 게 꿈이었어요.", "그 꿈을 이 곳에서 이뤄보려고 합니다. 잘 부탁드려요!", "그 꿈 이룰 수 있도록 내가 많이 도와주지.", "아직 다른 주민들과는 인사 안했지? 마을 회관에 가있게.", "기다리고 있으면, 내가 사람들과 함께 갈 거야." };
 
         talkUI.SetActive(true);
@@ -172,6 +211,7 @@ public class Part1_headhouse : MonoBehaviour
 
         if (GameManager.Part1 == 1)
         {
+            nametagText.text = "이장";
             headimg.SetActive(true);
             talk.SetMsg("처음 보는데, 자네가 바로 이번에 전입 온 청년인가?");
             for (int i = 0; i < script_list_1.Length; i++)
@@ -184,6 +224,7 @@ public class Part1_headhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 9)
         {
+            nametagText.text = a;
             talk.SetMsg("왜 이장님이 안계시지? 이장님! 이장님!");
             for (int i = 0; i < script_list_2.Length; i++)
             {
@@ -195,6 +236,7 @@ public class Part1_headhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 11)
         {
+            nametagText.text = "이장";
             headimg.SetActive(true);
             talk.SetMsg("그러니까.. 자네가 농작물을 수확했는데, 팔 곳이 없다 이 말이지?");
             
@@ -209,6 +251,8 @@ public class Part1_headhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 13)
         {
+            nametagText.text = a;
+            mainface.SetActive(true);
             talk.SetMsg("허! 이 인간 또 없네? 이번에도 마을 회관에 있나?");
             for (int i = 0; i < script_list_3.Length; i++)
             {
@@ -219,6 +263,7 @@ public class Part1_headhouse : MonoBehaviour
         }
         else
         {
+            nametagText.text = a;
             for (int i = 0; i < script_list_3.Length; i++)
             {
 

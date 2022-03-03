@@ -9,6 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_mainhouse : MonoBehaviour
 {
+    public Text nametagText;
     public TalkEffect talk;
     public GameObject talkUI;
     public Button ButtonTalk;
@@ -16,7 +17,7 @@ public class Part1_mainhouse : MonoBehaviour
     int MoveToMap = 0;
     public int clickCount = 0;
     public static int spaceCount = 0;
-
+    string a;
     GameObject npc;
     public GameManager manager;
 
@@ -33,7 +34,7 @@ public class Part1_mainhouse : MonoBehaviour
     public Image img_player;
     public Image img_npc;
     public Image fadeimg;
-
+    public GameObject mainface;
     public GameObject backgroud_home;
     public GameObject backgroud_company;
     public Transform t_npc;
@@ -61,7 +62,7 @@ public class Part1_mainhouse : MonoBehaviour
 
             if (clickCount == 6)
             {
-
+                mainface.SetActive(false);
                 StartCoroutine("FadeAway");
                 //GameManager.Part1++;
 
@@ -70,31 +71,36 @@ public class Part1_mainhouse : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 7;
+                DataController.Instance.gameData.part1 = GameManager.Part1;
                 SceneManager.LoadScene("Map");
 
             }
+
         }
-        else if(GameManager.Part1 == 12)
+        else if (GameManager.Part1 == 12)
         {
-            if (clickCount ==4)
+            if (clickCount == 4)
             {
                 clickCount = 0;
                 GameManager.Part1 = 13;
+                
                 SceneManager.LoadScene("Map");
 
             }
         }
-        else if(GameManager.Part1 == 14)
+        else if (GameManager.Part1 == 14)
         {
             if (clickCount == 10)
             {
                 StartCoroutine("FadeAway");
+
 
             }
             else if (clickCount == 12)
             {
                 clickCount = 0;
                 GameManager.Part1 = 15;
+                DataController.Instance.gameData.part1 = GameManager.Part1;
                 SceneManager.LoadScene("Map");
 
             }
@@ -114,14 +120,25 @@ public class Part1_mainhouse : MonoBehaviour
 
             }
             else if (clickCount == 4)
-            { 
+            {
+                nametagText.text = "아이";
                 t_npc.gameObject.SetActive(true);
                 Debug.Log(t_npc.gameObject.activeSelf);
             }
-
+            else if (clickCount == 5 || clickCount == 7 || clickCount == 11)
+            {
+                nametagText.text = a;
+            }
             else if (clickCount == 16)
+            {
+                nametagText.text = a;
                 t_npc.gameObject.SetActive(false);
-
+            }
+            else if (clickCount == 6||clickCount==8||clickCount==12)
+            {
+                nametagText.text = "아이";
+            }
+       
 
         }
         else if (GameManager.Part1 == 18)
@@ -130,6 +147,7 @@ public class Part1_mainhouse : MonoBehaviour
             {
                 clickCount = 0;
                 GameManager.Part1 = 19;
+                
                 SceneManager.LoadScene("Map");
 
             }
@@ -173,7 +191,7 @@ public class Part1_mainhouse : MonoBehaviour
     {
         gd = DataController.Instance.gameData;
         script_list_2 = new string[] { "무 하나에 602원, 배추 하나엔 907원, 파는 1205원이고. ", "이걸 계산하면… "+(int)(602 * gd.raddishNum + 907*gd.cabbageNum + 1205 * gd.greenOnionNum) +"원.", "뭐야! 받은 돈이랑 너무 차이가 나는데? 이거 순 사기 아니야!!!!!!!!!!!!", "이장 미친 거 아냐? 내가 그걸 어떻게 수확했는데! 당장 찾아 가서 따져야겠어." };
-
+        a= DataController.Instance.gameData.userName;
         //fadeimg.gameObject.SetActive(false);
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
@@ -181,7 +199,9 @@ public class Part1_mainhouse : MonoBehaviour
 
         if (GameManager.Part1 == 6)
         {
+            nametagText.text = a;
             talk.SetMsg("다들 쌀쌀하시네. 좀 무섭기도 하고..");
+            mainface.SetActive(true);
             for (int i = 0; i < script_list_1.Length; i++)
             {
 
@@ -192,6 +212,8 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 12)
         {
+            nametagText.text = a;
+            mainface.SetActive(true);
             talk.SetMsg("저번에 내가 무 "+gd.raddishNum+"개, 배추 "+gd.cabbageNum+"개, 파 "+gd.greenOnionNum+"개를 수확했고. ");
             for (int i = 0; i < script_list_2.Length; i++)
             {
@@ -203,6 +225,8 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 14)
         {
+            nametagText.text = a;
+            mainface.SetActive(true);
             talk.SetMsg("미쳤어.. 지금이라도 가서 사과 드릴까? 내가 말을 심하게 하긴 했잖아! ");
             for (int i = 0; i < script_list_3.Length; i++)
             {
@@ -213,9 +237,10 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 16)
         {
+            nametagText.text = a;
             audioSource.PlayOneShot(tissue_box);
             audioSource.PlayOneShot(alescouezec);
-            
+            mainface.SetActive(true);
             talk.SetMsg("이제 차 타고 나가기만 하면 돼. 휴대폰 없어도 뭐, 차 있으니까 괜찮네.");
             for (int i = 0; i < script_list_4.Length; i++)
             {
@@ -226,7 +251,8 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else if (GameManager.Part1 == 18)
         {
-
+            nametagText.text = a;
+            mainface.SetActive(true);
             talk.SetMsg("꿈이 아니네. 나는 이 마을에 갇혔구나. 그래, 그냥 이장에게 협조하자.");
             for (int i = 0; i < script_list_6.Length; i++)
             {
@@ -238,6 +264,7 @@ public class Part1_mainhouse : MonoBehaviour
         }
         else
         {
+            nametagText.text = a;
             for (int i = 0; i < script_list_1.Length; i++)
             {
 
