@@ -158,6 +158,15 @@ public class loadField : MonoBehaviour
         }
 
     }
+    void assignArr(GameData g)
+    {
+        for(int i =0; i<15; i++)
+            gd.seedGArr[i] = 50;
+        for (int i = 0; i < 15; i++)
+            gd.seedCArr[i] = 50;
+        for (int i = 0; i < 15; i++)
+            gd.seedRArr[i] = 50;
+    }
     //농사게임씬 시작시 밭 상태를 불러와서 오브젝트에 저장시킴
     void Start()
     {
@@ -166,6 +175,20 @@ public class loadField : MonoBehaviour
         //이부분 제이슨에서 배열 불러오는걸로 바꾸기
         
         gd = DataController.Instance.gameData;
+
+       if(gd.seedCNum == 0 && gd.seedGNum == 0 && gd.seedRNum == 0)
+        {
+            //씨앗 리젠
+            gd.seedCNum = 15;
+            gd.seedGNum = 15;
+            gd.seedRNum = 15;
+
+            assignArr(gd);
+            Debug.Log("reassign");
+
+        }
+        
+        
 
         if((gd.seedCNum + gd.seedGNum + gd.seedRNum) == 0)
         {
