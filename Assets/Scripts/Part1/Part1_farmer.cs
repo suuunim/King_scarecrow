@@ -225,8 +225,9 @@ public class Part1_farmer : MonoBehaviour
 
         }
         else if (GameManager.Part1 == 8) {
-            t_npcM.transform.gameObject.SetActive(true);
             nametagText.text = a;
+            t_npcM.transform.gameObject.SetActive(true);
+            
             talk.SetMsg("어르신! 저번에 인사드린 "+name+"입니다. 여쭤 볼 게 있어서 왔어요! ");
             for (int i = 0; i < script_list_2.Length; i++)
             {

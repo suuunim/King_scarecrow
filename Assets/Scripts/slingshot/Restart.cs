@@ -13,6 +13,7 @@ public class Restart : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.explaincheck = 0;
+        GameManager.StoneN = 50;
     }
     // Update is called once per frame
     void Update()

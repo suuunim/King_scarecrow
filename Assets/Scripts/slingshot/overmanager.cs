@@ -16,7 +16,7 @@ public class overmanager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        originText = "GAME OVER\n\n 다시 하시겠습니까?\n▶예 ▶아니오";
+        originText = "GAME OVER\n\n 다시 하시겠습니까?\n▶예 ▶아니오 ";
     }
 
     // Update is called once per frame

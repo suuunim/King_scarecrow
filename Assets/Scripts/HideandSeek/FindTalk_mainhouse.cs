@@ -7,6 +7,8 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class FindTalk_mainhouse : MonoBehaviour
 {
+    public Text nametagText;
+    string a;
     public GameObject Gameoverimg;
     public GameObject headimg;
     public Image fadeimg;
@@ -92,7 +94,8 @@ public class FindTalk_mainhouse : MonoBehaviour
 
     void Start()
     {
-       
+        a = DataController.Instance.gameData.userName;
+        nametagText.text = a;
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 
