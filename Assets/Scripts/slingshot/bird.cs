@@ -217,9 +217,10 @@ public class bird : MonoBehaviour
 
     void Update() {
 
-        if (GameManager.score == 1)
+        if (GameManager.score == 30)
         {
             GameManager.Part1 = 22;
+            GameManager.StoneN = 50;
             Invoke("delayLoad", 2);
         }
         else if (GameManager.StoneN == 0)

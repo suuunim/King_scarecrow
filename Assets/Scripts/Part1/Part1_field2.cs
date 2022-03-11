@@ -9,6 +9,7 @@ using System;
 using UnityEngine.SceneManagement;
 public class Part1_field2 : MonoBehaviour
 {
+    public Text nametagText;
     GameData gd;
     public TalkEffect talk;
     public GameObject talkUI;
@@ -26,7 +27,7 @@ public class Part1_field2 : MonoBehaviour
     public Image img_player;
     public Image img_npc;
     public GameObject panel;
-
+    string a;
     public GameObject backgroud_home;
     public GameObject backgroud_company;
 
@@ -69,6 +70,9 @@ public class Part1_field2 : MonoBehaviour
             }
             else if (clickCount == 2)
                 img_npc.gameObject.SetActive(false);
+            else if (clickCount == 2) {
+                nametagText.text = a;
+            }
 
         }
         else if (GameManager.Part1 == 15)
@@ -112,6 +116,7 @@ public class Part1_field2 : MonoBehaviour
 
     public void AfterHarvest()
     {
+        a = DataController.Instance.gameData.userName;
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
         img_player.gameObject.SetActive(true);
@@ -119,6 +124,7 @@ public class Part1_field2 : MonoBehaviour
         {
             img_player.gameObject.SetActive(true);
             talk.SetMsg("힘드네.. 농사 정말 쉬운 일이 아니구나. 그래도 나름 꽤 수확한 것 같아.");
+            nametagText.text = a;
             for (int i = 0; i < script_list_1.Length; i++)
             {
 
@@ -129,8 +135,10 @@ public class Part1_field2 : MonoBehaviour
         }
         else if (GameManager.Part1 == 12)
         {
+            nametagText.text = "이장";
             int num = gd.raddishNum * 602 + gd.greenOnionNum * 1205 + gd.cabbageNum * 907;
             img_npc.gameObject.SetActive(true);
+            
             talk.SetMsg("열심히 수확하고 있었구만! 자, 여기 " + (int)(num * 0.1) + "원.");
             for (int i = 0; i < script_list_2.Length; i++)
             {
@@ -142,6 +150,7 @@ public class Part1_field2 : MonoBehaviour
         }
         else if (GameManager.Part1 == 15)
         {
+            nametagText.text = a;
             talk.SetMsg("이만하면 됐어. 아직 해가 지진 않았으니까, 마을 밖으로 나가보자.");
             for (int i = 0; i < script_list_3.Length; i++)
             {

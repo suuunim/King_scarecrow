@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; //어디서나 접근할 수 있도록 static(정적)으로 자기 자신을 저장할 변수를 만듭니다.
     public Text scoreText; //점수를 표시하는 Text객체를 에디터에서 받아옵니다.
     public Text StoneText;
+    public static int RCheck=0;
+    public Text MscoreText;
+    public Text FscoreText;
+    public static int Mscore = 0;
+    public static int Fscore = 0;
     public static int StoneN = 50;
     public static int score = 0; //점수를 관리합니다.
     public static int Part1=0;
@@ -35,6 +40,17 @@ public class GameManager : MonoBehaviour
     {
         score += num; //점수를 더해줍니다.
         scoreText.text = " X " + score; //텍스트에 반영합니다.
+    }
+
+    public void MAddScore(int num) //점수를 추가해주는 함수를 만들어 줍니다.
+    {
+        Mscore += num; //점수를 더해줍니다.
+        MscoreText.text = " X " + Mscore; //텍스트에 반영합니다.
+    }
+    public void FAddScore(int num) //점수를 추가해주는 함수를 만들어 줍니다.
+    {
+        Fscore += num; //점수를 더해줍니다.
+        FscoreText.text = " X " + Fscore; //텍스트에 반영합니다.
     }
 
     public void stoneNumber()

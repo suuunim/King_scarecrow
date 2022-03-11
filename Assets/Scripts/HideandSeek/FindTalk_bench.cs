@@ -7,10 +7,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 public class FindTalk_bench : MonoBehaviour
 {
-   
+    string a;
     public GameObject Gameoverimg;
     public GameObject headimg;
-   
+    public Text nametagText;
     public TalkEffect talk;
     public GameObject talkUI;
     public void OnClickNextText()
@@ -76,7 +76,8 @@ public class FindTalk_bench : MonoBehaviour
 
     void Start()
     {
-       
+        a = DataController.Instance.gameData.userName;
+        nametagText.text = a;
         talkUI.SetActive(true);
         talkUI.transform.GetChild(1).gameObject.SetActive(true);
 
